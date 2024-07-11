@@ -937,15 +937,5 @@ RESET ALL;
 -- Dumped schema changes for auth and storage
 --
 
-CREATE OR REPLACE FUNCTION "auth"."create_account"() RETURNS "trigger"
-    LANGUAGE "plpgsql" SECURITY DEFINER
-    AS $$begin
-  insert into public.accounts(id, phone)
-  values(new.id, new.phone);
-  return new;
-end;$$;
-
-ALTER FUNCTION "auth"."create_account"() OWNER TO "postgres";
-
 CREATE OR REPLACE TRIGGER "on_auth_user_created" AFTER INSERT ON "auth"."users" FOR EACH ROW EXECUTE FUNCTION "public"."create_account"();
 
