@@ -34,8 +34,6 @@ drop policy "update by customer id" on "public"."transaction_units";
 
 alter table "public"."customer_cards" drop constraint "customer_cards_customer_fkey";
 
-drop function if exists "public"."create_account"();
-
 alter table "public"."customer_cards" alter column "customer" set data type integer using "customer"::integer;
 
 alter table "public"."customers" add column "phone" text;
