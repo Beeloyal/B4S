@@ -40,7 +40,7 @@ serve(async (req) => {
         const signature = req.headers.get("stripe-signature")!;
         const body = await req.text();
 
-        const event = stripe.webhooks.constructEvent(
+        const event = await stripe.webhooks.constructEventAsync(
             body,
             signature,
             Deno.env.get("STRIPE_WEBHOOK_SIGNING_SECRET")!,
@@ -49,7 +49,13 @@ serve(async (req) => {
         if (event.type === "checkout.session.completed") {
             const session = event.data.object as Stripe.Checkout.Session;
             const customerId = session.customer as string;
-            const customerEmail = session.customer_email;
+
+            let customerEmail = session.customer_email;
+
+            // Jeśli jest null, spróbuj z customer_details
+            if (!customerEmail && session.customer_details) {
+                customerEmail = session.customer_details.email;
+            }
 
             if (!customerEmail) {
                 throw new Error("Missing customer email");

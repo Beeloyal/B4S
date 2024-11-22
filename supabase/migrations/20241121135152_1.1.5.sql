@@ -7,9 +7,11 @@ CREATE TYPE "public"."subscription_status" AS ENUM (
     'trialing'
 );
 
--- Dodaj kolumnę status do tabeli businesses
+ALTER TYPE "public"."subscription_status" OWNER TO "postgres";
+
+-- Dodaj kolumny do tabeli businesses
 ALTER TABLE "public"."businesses" 
-ADD COLUMN "subscription_status" text NOT NULL DEFAULT  'inactive'::subscription_status,
+ADD COLUMN "subscription_status" "public"."subscription_status" DEFAULT 'inactive'::"public"."subscription_status" NOT NULL,
 ADD COLUMN "subscription_id" text,
 ADD COLUMN "subscription_period_end" timestamp with time zone;
 
