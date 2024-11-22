@@ -127,11 +127,6 @@ using ((check_app_id('app.beeloyal.customer'::text) AND (EXISTS ( SELECT 1
    FROM customers c
   WHERE ((transactions.customer = c.id) AND (c.account = auth.uid()))))));
 
-
-
-CREATE TRIGGER on_auth_user_created AFTER INSERT ON auth.users FOR EACH ROW EXECUTE FUNCTION create_account();
-
-
 grant delete on table "storage"."s3_multipart_uploads" to "postgres";
 
 grant insert on table "storage"."s3_multipart_uploads" to "postgres";
