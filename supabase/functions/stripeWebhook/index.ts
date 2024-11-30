@@ -35,6 +35,27 @@ const mapStripeStatusToSubscriptionStatus = (
     }
 };
 
+const extractFirstName = (name: string | null | undefined): string | null => {
+    if (!name) return null;
+    return name.split(' ')[0].trim();
+};
+
+const getDisplayName = (session: Stripe.Checkout.Session): string | null => {
+    // Try to get name from shipping address first
+    const shippingName = session.shipping_details?.name;
+    if (shippingName) {
+        return extractFirstName(shippingName);
+    }
+
+    // Fall back to customer details name
+    const customerName = session.customer_details?.name;
+    if (customerName) {
+        return extractFirstName(customerName);
+    }
+
+    return null;
+};
+
 serve(async (req) => {
     try {
         const signature = req.headers.get("stripe-signature")!;
@@ -51,8 +72,9 @@ serve(async (req) => {
             const customerId = session.customer as string;
 
             let customerEmail = session.customer_email;
+            let customerFullName = session.customer_details?.name || null;
+            let displayName = getDisplayName(session);
 
-            // Jeśli jest null, spróbuj z customer_details
             if (!customerEmail && session.customer_details) {
                 customerEmail = session.customer_details.email;
             }
@@ -61,23 +83,24 @@ serve(async (req) => {
                 throw new Error("Missing customer email");
             }
 
-            // Sprawdź czy użytkownik już istnieje
+            // Check if user exists
             const { data: existingUser } = await supabase
-                .from("auth.users")
-                .select("id")
-                .eq("email", customerEmail)
-                .single();
+                .from('auth.users')
+                .select('id')
+                .eq('email', customerEmail)
+                .maybeSingle();
 
             let userId: string;
 
             if (!existingUser) {
-                // Utwórz nowego użytkownika
+                // Create new user
                 const { data: newUser, error: createUserError } = await supabase
                     .auth.admin.createUser({
                         email: customerEmail,
                         email_confirm: true,
                         user_metadata: {
                             app_id: "app.beeloyal.employer",
+                            display_name: displayName,
                         },
                     });
 
@@ -85,9 +108,22 @@ serve(async (req) => {
                 userId = newUser.user.id;
             } else {
                 userId = existingUser.id;
+
+                // Update display_name for existing user
+                if (displayName) {
+                    const { error: updateUserError } = await supabase
+                        .auth.admin.updateUserById(userId, {
+                            user_metadata: {
+                                display_name: displayName,
+                                app_id: "app.beeloyal.employer",
+                            },
+                        });
+
+                    if (updateUserError) throw updateUserError;
+                }
             }
 
-            // Pobierz status subskrypcji ze Stripe
+            // Get subscription status from Stripe
             const subscription = await stripe.subscriptions.retrieve(
                 session.subscription as string,
             );
@@ -95,7 +131,7 @@ serve(async (req) => {
                 subscription.status,
             );
 
-            // Sprawdź czy firma już istnieje
+            // Check if business exists
             const { data: existingBusiness } = await supabase
                 .from("businesses")
                 .select("id, subscription_status, subscription_id")
@@ -103,12 +139,12 @@ serve(async (req) => {
                 .single();
 
             if (!existingBusiness) {
-                // Utwórz nową firmę
+                // Create new business
                 const { error: createBusinessError } = await supabase
                     .from("businesses")
                     .insert({
                         owner: userId,
-                        name: session.customer_details?.name || "Nowa firma",
+                        name: customerFullName || "Nowa firma",
                         stripe_customer: customerId,
                         subscription_status: subscriptionStatus,
                         subscription_id: session.subscription,
@@ -119,7 +155,7 @@ serve(async (req) => {
 
                 if (createBusinessError) throw createBusinessError;
             } else {
-                // Aktualizuj dane subskrypcji
+                // Update subscription data
                 const { error: updateBusinessError } = await supabase
                     .from("businesses")
                     .update({
@@ -140,8 +176,9 @@ serve(async (req) => {
             });
         }
 
-        // Obsługa zmian statusu subskrypcji
+        // Handle subscription status changes
         if (
+            event.type === "customer.subscription.created" ||
             event.type === "customer.subscription.updated" ||
             event.type === "customer.subscription.deleted"
         ) {
