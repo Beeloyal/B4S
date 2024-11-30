@@ -83,7 +83,6 @@ serve(async (req) => {
                 throw new Error("Missing customer email");
             }
 
-            // Check if user exists using admin.getUserByEmail
             const { data: existingUser, error: userError } = await supabase
                 .auth.admin.getUserByEmail(customerEmail);
 
