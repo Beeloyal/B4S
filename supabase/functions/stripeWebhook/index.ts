@@ -85,7 +85,6 @@ serve(async (req) => {
 
             // Check if user exists using admin API
             const { data: users, error: searchError } = await supabase
-                .schema('auth')
                 .from('users')
                 .select('id')
                 .eq('email', customerEmail)
