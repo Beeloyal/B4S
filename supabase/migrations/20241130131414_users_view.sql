@@ -1,5 +1,5 @@
 CREATE VIEW
-    public.user_view AS
+    public.users AS
 SELECT
     id,
     email,
