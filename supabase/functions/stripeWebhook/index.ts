@@ -83,17 +83,17 @@ serve(async (req) => {
                 throw new Error("Missing customer email");
             }
 
-            // Check if user exists
-            const { data: existingUser } = await supabase
-                .from('auth.users')
-                .select('id')
-                .eq('email', customerEmail)
-                .maybeSingle();
+            const { data: existingUser, error: userError } = await supabase
+                .auth.admin.getUserByEmail(customerEmail);
+
+            if (userError && userError.message !== 'User not found') {
+                throw userError;
+            }
 
             let userId: string;
 
             if (!existingUser) {
-                // Create new user
+                // Create new user only if they don't exist
                 const { data: newUser, error: createUserError } = await supabase
                     .auth.admin.createUser({
                         email: customerEmail,
@@ -107,9 +107,9 @@ serve(async (req) => {
                 if (createUserError) throw createUserError;
                 userId = newUser.user.id;
             } else {
-                userId = existingUser.id;
+                userId = existingUser.user.id;
 
-                // Update display_name for existing user
+                // Update existing user's metadata if needed
                 if (displayName) {
                     const { error: updateUserError } = await supabase
                         .auth.admin.updateUserById(userId, {
