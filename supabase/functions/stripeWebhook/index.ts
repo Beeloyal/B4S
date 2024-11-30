@@ -10,7 +10,7 @@ type SubscriptionStatus =
     | "trialing";
 
 const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
-    apiVersion: "2024-06-20",
+    apiVersion: "2023-10-16",
 });
 
 const supabase = createClient(
@@ -83,16 +83,18 @@ serve(async (req) => {
                 throw new Error("Missing customer email");
             }
 
-            const { data: existingUser, error: userError } = await supabase
-                .auth.admin.getUserByEmail(customerEmail);
+            // Check if user exists using admin API
+            const { data: users, error: searchError } = await supabase
+                .from('auth.users')
+                .select('id')
+                .eq('email', customerEmail)
+                .maybeSingle();
 
-            if (userError && userError.message !== 'User not found') {
-                throw userError;
-            }
+            if (searchError) throw searchError;
 
             let userId: string;
 
-            if (!existingUser) {
+            if (!users) {
                 // Create new user only if they don't exist
                 const { data: newUser, error: createUserError } = await supabase
                     .auth.admin.createUser({
@@ -107,7 +109,7 @@ serve(async (req) => {
                 if (createUserError) throw createUserError;
                 userId = newUser.user.id;
             } else {
-                userId = existingUser.user.id;
+                userId = users.id;
 
                 // Update existing user's metadata if needed
                 if (displayName) {
