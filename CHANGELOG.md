@@ -73,4 +73,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic RLS policies
 - Core business logic functions
 - Transaction management system
-- Customer loyalty system
