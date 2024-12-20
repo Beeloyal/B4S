@@ -275,3 +275,7 @@ runtime = "edge"
 timeout = 15
 memory = 256
 verify_jwt = false
+
+# Develop
+[remotes.staging]
+project_id = "cfrwepxesctjdwtkmfas"
