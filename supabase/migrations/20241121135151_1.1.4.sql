@@ -1,19 +1,11 @@
 drop policy "allow_user_access_to_their_customer_cards" on "public"."customer_cards";
-
 drop policy "allow_user_access_to_their_customer_record" on "public"."customers";
-
 drop policy "Employer insert" on "public"."transaction_units";
-
 drop policy "Employer select" on "public"."transaction_units";
-
 drop policy "Employer update" on "public"."transaction_units";
-
 drop policy "allow_user_access_their_transaction_units" on "public"."transaction_units";
-
 drop policy "allow_user_access_to_their_transactions" on "public"."transactions";
-
 set check_function_bodies = off;
-
 CREATE OR REPLACE FUNCTION public.check_employer_access(local_id bigint)
  RETURNS boolean
  LANGUAGE plpgsql
@@ -37,17 +29,13 @@ BEGIN
   END IF;
 
   RETURN false;
-END;$function$
-;
-
+END;$function$;
 create policy "Employer select"
 on "public"."locals"
 as permissive
 for select
 to public
 using (check_employer_access((id)::bigint));
-
-
 create policy "allow_user_access_to_their_customer_cards"
 on "public"."customer_cards"
 as permissive
@@ -56,16 +44,12 @@ to public
 using ((check_app_id('app.beeloyal.customer'::text) AND (( SELECT customers.account
    FROM customers
   WHERE (customers.id = customer_cards.customer)) = auth.uid())));
-
-
 create policy "allow_user_access_to_their_customer_record"
 on "public"."customers"
 as permissive
 for select
 to public
 using ((check_app_id('app.beeloyal.customer'::text) AND (account = auth.uid())));
-
-
 create policy "Employer insert"
 on "public"."transaction_units"
 as permissive
@@ -76,8 +60,6 @@ with check (check_employer_access(( SELECT local_addresses.local
   WHERE (local_addresses.id = ( SELECT t.local_address
            FROM transactions t
           WHERE (t.id = transaction_units.transaction))))));
-
-
 create policy "Employer select"
 on "public"."transaction_units"
 as permissive
@@ -88,8 +70,6 @@ using (check_employer_access(( SELECT local_addresses.local
   WHERE (local_addresses.id = ( SELECT t.local_address
            FROM transactions t
           WHERE (t.id = transaction_units.transaction))))));
-
-
 create policy "Employer update"
 on "public"."transaction_units"
 as permissive
@@ -105,8 +85,6 @@ with check (check_employer_access(( SELECT local_addresses.local
   WHERE (local_addresses.id = ( SELECT t.local_address
            FROM transactions t
           WHERE (t.id = transaction_units.transaction))))));
-
-
 create policy "allow_user_access_their_transaction_units"
 on "public"."transaction_units"
 as permissive
@@ -116,8 +94,6 @@ using ((check_app_id('app.beeloyal.customer'::text) AND (EXISTS ( SELECT 1
    FROM (transactions t
      JOIN customers c ON ((t.customer = c.id)))
   WHERE ((t.id = transaction_units.transaction) AND (c.account = auth.uid()))))));
-
-
 create policy "allow_user_access_to_their_transactions"
 on "public"."transactions"
 as permissive
@@ -126,38 +102,21 @@ to public
 using ((check_app_id('app.beeloyal.customer'::text) AND (EXISTS ( SELECT 1
    FROM customers c
   WHERE ((transactions.customer = c.id) AND (c.account = auth.uid()))))));
-
 grant delete on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant insert on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant references on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant select on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant trigger on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant truncate on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant update on table "storage"."s3_multipart_uploads" to "postgres";
-
 grant delete on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
 grant insert on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
 grant references on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
 grant select on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
 grant trigger on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
 grant truncate on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
 grant update on table "storage"."s3_multipart_uploads_parts" to "postgres";
-
-
 set check_function_bodies = off;
-
 CREATE OR REPLACE FUNCTION supabase_functions.http_request()
  RETURNS trigger
  LANGUAGE plpgsql
@@ -234,7 +193,4 @@ AS $function$
 
       RETURN NEW;
     END
-  $function$
-;
-
-
+  $function$;
