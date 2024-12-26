@@ -42,8 +42,13 @@ alter table "public"."locals" add column "business" bigint;
 update "public"."locals" set "business" = "company";
 alter table "public"."locals" alter column "business" set not null;
 alter table "public"."locals" drop column "company";
+alter table "public"."transactions" add column "executor" uuid;
+update "public"."transactions" set "executor" = ( SELECT e.account
+   FROM employees e
+  WHERE (e.id = employer)
+  LIMIT 1);
+alter table "public"."transactions" alter column "executor" set not null;
 alter table "public"."transactions" drop column "employer";
-alter table "public"."transactions" add column "executor" uuid not null;
 alter table "public"."locals" add constraint "locals_business_fkey" FOREIGN KEY (business) REFERENCES businesses(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
 alter table "public"."locals" validate constraint "locals_business_fkey";
 alter table "public"."transactions" add constraint "transactions_customer_fkey" FOREIGN KEY (customer) REFERENCES customers(id) ON UPDATE CASCADE ON DELETE CASCADE not valid;
