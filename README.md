@@ -20,6 +20,3 @@ generate changes with copilot and add to CHANGELOG.md
 
 `git push`
 
-create pr to develop
-
-test your changes on beta enviroment
