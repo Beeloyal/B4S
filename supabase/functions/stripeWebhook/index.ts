@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import Stripe from "https://esm.sh/stripe@14.5.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.46.1";
+import Stripe from "https://esm.sh/v135/stripe@14.5.0/types/index.d.ts";
 
 type SubscriptionStatus =
     | "active"
@@ -37,7 +37,7 @@ const mapStripeStatusToSubscriptionStatus = (
 
 const extractFirstName = (name: string | null | undefined): string | null => {
     if (!name) return null;
-    return name.split(' ')[0].trim();
+    return name.split(" ")[0].trim();
 };
 
 const getDisplayName = (session: Stripe.Checkout.Session): string | null => {
@@ -85,9 +85,9 @@ serve(async (req) => {
 
             // Check if user exists using admin API
             const { data: users, error: searchError } = await supabase
-                .from('users')
-                .select('id')
-                .eq('email', customerEmail)
+                .from("users")
+                .select("id")
+                .eq("email", customerEmail)
                 .maybeSingle();
 
             if (searchError) throw searchError;
@@ -208,7 +208,7 @@ serve(async (req) => {
             status: 200,
         });
     } catch (error) {
-        return new Response(JSON.stringify({ error: error.message }), {
+        return new Response(JSON.stringify({ error: error }), {
             headers: { "Content-Type": "application/json" },
             status: 400,
         });
