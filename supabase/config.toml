@@ -82,11 +82,11 @@ file_size_limit = "50MiB"
 enabled = true
 
 # Uncomment to configure local storage buckets
-# [storage.buckets.images]
+# [storage.buckets.markers]
 # public = false
 # file_size_limit = "50MiB"
 # allowed_mime_types = ["image/png", "image/jpeg"]
-# objects_path = "./images"
+# bjects_path = "./markers"
 
 [auth]
 enabled = true
@@ -142,16 +142,16 @@ otp_expiry = 3600
 
 [auth.sms]
 # Allow/disallow new user signups via SMS to your project.
-enable_signup = false
+enable_signup = true
 # If enabled, users need to confirm their phone number before signing in.
-enable_confirmations = false
+enable_confirmations = true
 # Template for sending OTP to users
-template = "Your code is {{ .Code }} ."
+template = "👋 Cześć, twój kod do Beeloyal to: {{ .Code }}"
 # Controls the minimum amount of time that must pass before sending another sms otp.
 max_frequency = "5s"
 
 # Use pre-defined map of phone number to OTP for testing.
-# [auth.sms.test_otp]
+[auth.sms.test_otp]
 48666978350 = "123456"
 
 # Configure logged in session timeouts.
@@ -167,10 +167,10 @@ max_frequency = "5s"
 # uri = "pg-functions://<database>/<schema>/<hook_name>"
 
 # Configure one of the supported SMS providers: `twilio`, `twilio_verify`, `messagebird`, `textlocal`, `vonage`.
-[auth.sms.twilio]
-enabled = false
-account_sid = ""
-message_service_sid = ""
+[auth.sms.twilio_verify]
+enabled = true
+account_sid = "ACf0fc98ce413636847c39889c4d25cb5c"
+message_service_sid = "VA73054e9b4917ebf0cc381d01560f6f3c"
 # DO NOT commit your Twilio auth token to git. Use environment variable substitution instead:
 auth_token = "env(SUPABASE_AUTH_SMS_TWILIO_AUTH_TOKEN)"
 
@@ -180,8 +180,8 @@ max_enrolled_factors = 10
 
 # Control use of MFA via App Authenticator (TOTP)
 [auth.mfa.totp]
-enroll_enabled = true
-verify_enabled = true
+enroll_enabled = false
+verify_enabled = false
 
 # Configure Multi-factor-authentication via Phone Messaging
 [auth.mfa.phone]
@@ -256,22 +256,13 @@ s3_access_key = "env(S3_ACCESS_KEY)"
 s3_secret_key = "env(S3_SECRET_KEY)"
 
 [functions.rewardConfirmationRequestNotification]
-path = "rewardConfirmationRequestNotification"
-runtime = "edge"
-timeout = 15
-memory = 256
 verify_jwt = false
 
 [functions.stripeWebhook]
-path = "stripeWebhook"
-runtime = "edge"
-timeout = 15
-memory = 256
 verify_jwt = false
 
 [functions.transactionCompletedNotification]
-path = "transactionCompletedNotification"
-runtime = "edge"
-timeout = 15
-memory = 256
+verify_jwt = false
+
+[functions.generateMarker]
 verify_jwt = false
