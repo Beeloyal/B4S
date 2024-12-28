@@ -127,14 +127,13 @@ otp_length = 6
 otp_expiry = 3600
 
 # Use a production-ready SMTP server
-[auth.email.smtp]
-host = "smtp.hostinger.com"
-port = 465
-user = "hello@beeloyal.app"
-pass = "1234"
-# "env(SUPABASE_AUTH_EMAIL_PASSWORD)"
-admin_email = "noreply@beeloyal.app"
-sender_name = "(dev) Beeloyal"
+# [auth.email.smtp]
+# host = "smtp.hostinger.com"
+# port = 465
+# user = "hello@beeloyal.app"
+# pass = "env(SUPABASE_AUTH_EMAIL_PASSWORD)"
+# admin_email = "noreply@beeloyal.app"
+# sender_name = "(dev) Beeloyal"
 
 # Uncomment to customize email template
 # [auth.email.template.invite]
