@@ -131,7 +131,7 @@ otp_expiry = 3600
 host = "smtp.hostinger.com"
 port = 465
 user = "hello@beeloyal.app"
-pass = ""
+pass = "1234"
 # "env(SUPABASE_AUTH_EMAIL_PASSWORD)"
 admin_email = "noreply@beeloyal.app"
 sender_name = "(dev) Beeloyal"
