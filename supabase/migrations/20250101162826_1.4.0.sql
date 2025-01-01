@@ -1901,16 +1901,10 @@ ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON SEQ
 
 
 
-
-
-
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUNCTIONS  TO "postgres";
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUNCTIONS  TO "anon";
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUNCTIONS  TO "authenticated";
 ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON FUNCTIONS  TO "service_role";
-
-
-
 
 
 
@@ -1945,29 +1939,4 @@ ALTER DEFAULT PRIVILEGES FOR ROLE "postgres" IN SCHEMA "public" GRANT ALL ON TAB
 
 
 
-
-
-
 RESET ALL;
-
---
--- Dumped schema changes for auth and storage
---
-
-CREATE OR REPLACE FUNCTION "auth"."get_user_by_phone"("phone_input" "text") RETURNS TABLE("id" "uuid", "email" character varying, "phone" "text")
-    LANGUAGE "plpgsql" SECURITY DEFINER
-    AS $$
-BEGIN
-    RETURN QUERY
-    SELECT u.id, u.email, u.phone
-    FROM auth.users u
-    WHERE u.phone = phone_input;
-END;
-$$;
-
-
-ALTER FUNCTION "auth"."get_user_by_phone"("phone_input" "text") OWNER TO "postgres";
-
-
-GRANT ALL ON TABLE "storage"."s3_multipart_uploads" TO "postgres";
-GRANT ALL ON TABLE "storage"."s3_multipart_uploads_parts" TO "postgres";
