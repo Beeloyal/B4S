@@ -5,7 +5,7 @@ SET session_replication_role = replica;
 --
 
 -- Dumped from database version 15.1 (Ubuntu 15.1-1.pgdg20.04+1)
--- Dumped by pg_dump version 15.6
+-- Dumped by pg_dump version 15.8
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -473,6 +473,7 @@ INSERT INTO "auth"."audit_log_entries" ("instance_id", "id", "payload", "created
 	('00000000-0000-0000-0000-000000000000', '2b3e14f4-4d3d-4a6b-a7ce-eb7220cd7deb', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-26 08:53:20.799003+00', ''),
 	('00000000-0000-0000-0000-000000000000', '7b03ea55-9950-4792-8052-5605dae9619a', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-26 08:53:20.930194+00', ''),
 	('00000000-0000-0000-0000-000000000000', 'a41ec99d-e27d-43f5-b0ce-10095ab44a57', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-26 08:53:20.930638+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c5f9c095-11dc-45b2-9cb5-3d7563ff343d', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-29 11:31:17.998647+00', ''),
 	('00000000-0000-0000-0000-000000000000', '48fa6d1e-2ebd-4bed-a2c0-4115b9f1ab2a', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-25 18:27:00.124179+00', ''),
 	('00000000-0000-0000-0000-000000000000', '5afcc5e0-bbee-4ea0-9d4a-3dab152d3119', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-25 18:27:00.293738+00', ''),
 	('00000000-0000-0000-0000-000000000000', 'cd171d51-aa79-434a-99aa-fe204a7b47b9', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-25 18:27:00.294254+00', ''),
@@ -1241,7 +1242,200 @@ INSERT INTO "auth"."audit_log_entries" ("instance_id", "id", "payload", "created
 	('00000000-0000-0000-0000-000000000000', 'dc0daba4-7b72-44fb-ab8e-cef308568768', '{"action":"login","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"account"}', '2024-12-27 07:37:44.435395+00', ''),
 	('00000000-0000-0000-0000-000000000000', 'cd4aa3a2-ead9-4fe6-99c7-5d060d55f3c1', '{"action":"user_modified","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"user"}', '2024-12-27 07:37:44.568993+00', ''),
 	('00000000-0000-0000-0000-000000000000', '846b4fed-b464-43e4-9740-ef1eadab6877', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 07:37:44.70742+00', ''),
-	('00000000-0000-0000-0000-000000000000', '90d54e76-cabf-475f-b526-4e5fcd0d162f', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 07:37:44.707911+00', '');
+	('00000000-0000-0000-0000-000000000000', '90d54e76-cabf-475f-b526-4e5fcd0d162f', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 07:37:44.707911+00', ''),
+	('00000000-0000-0000-0000-000000000000', '7a7f96e8-eccc-4a6d-8894-601ff8527f80', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 18:07:34.630223+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1c6bf5c6-1d65-42d2-aaf7-5204591bb315', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 18:07:34.631197+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6f66b847-9ac1-455e-9fb1-20c20ac67509', '{"action":"logout","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"account"}', '2024-12-27 18:07:41.220439+00', ''),
+	('00000000-0000-0000-0000-000000000000', '48cf4b2d-52a9-4ccc-847e-7b1459dd39a7', '{"action":"user_recovery_requested","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"user"}', '2024-12-27 18:08:16.071989+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'a4e2726a-835d-4145-94dd-afaf86e76ee5', '{"action":"login","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"account"}', '2024-12-27 18:08:31.433822+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4d55ce82-16de-4557-bf3c-33c847541ef5', '{"action":"user_modified","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"user"}', '2024-12-27 18:08:31.587939+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0a22d8db-eed2-4b01-9fe0-0edc74e051c5', '{"action":"token_refreshed","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-27 18:08:31.771582+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c6e54c30-3be0-429e-b052-4e06faea3de0', '{"action":"token_revoked","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-27 18:08:31.77211+00', ''),
+	('00000000-0000-0000-0000-000000000000', '84f5fe54-fde3-44fc-b045-5e28b9097859', '{"action":"user_confirmation_requested","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user","traits":{"provider":"phone"}}', '2024-12-27 18:12:00.209111+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'e762d417-a504-4738-aa59-190f37e350fc', '{"action":"user_signedup","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"team"}', '2024-12-27 18:12:15.881916+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6555ea5b-ae78-490c-bd72-7808041df323', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-27 18:12:16.189053+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c5172953-be01-4408-b903-c423331f456a', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-27 18:12:16.404856+00', ''),
+	('00000000-0000-0000-0000-000000000000', '525a6f2e-2b13-40a5-9654-a378e41090d0', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-27 18:12:16.405485+00', ''),
+	('00000000-0000-0000-0000-000000000000', '70aa6cd7-40e3-4894-95fe-6a6cb5add5a3', '{"action":"logout","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"account"}', '2024-12-27 18:12:45.831808+00', ''),
+	('00000000-0000-0000-0000-000000000000', '22596ca7-9deb-4a78-b67c-c8c9de87650b', '{"action":"token_refreshed","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:17:38.878008+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6d0d6b92-6140-45c6-8a55-1d5ec8869232', '{"action":"token_revoked","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:17:38.878869+00', ''),
+	('00000000-0000-0000-0000-000000000000', '187b5c07-3b82-4e0a-9c04-e9d5ceaf58c9', '{"action":"user_recovery_requested","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user","traits":{"channel":"sms"}}', '2024-12-27 19:17:59.648305+00', ''),
+	('00000000-0000-0000-0000-000000000000', '014f3d80-2c2c-462c-b82e-51a174b0bcbe', '{"action":"user_signedup","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"team"}', '2024-12-27 19:18:16.811355+00', ''),
+	('00000000-0000-0000-0000-000000000000', '29554dbe-9ef5-4368-ac62-6e1820cc3f9d', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-27 19:18:17.062796+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0f7e6296-55c5-48ec-b977-287044cdf045', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:18:17.252208+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5506f5f2-e904-4ba6-8dcd-597cb0b25536', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:18:17.25742+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9a06ee27-de6d-4416-9dce-55384263bf86', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:19:22.327224+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1ab0b65a-2235-42ea-ac40-29cb202be1c8', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:19:22.327917+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2614710e-acea-4803-9d96-27b8a09c6416', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:19:32.831967+00', ''),
+	('00000000-0000-0000-0000-000000000000', '26ada0bb-7493-4a1d-88d0-5343e3223a92', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:19:32.83249+00', ''),
+	('00000000-0000-0000-0000-000000000000', '89129934-1d9e-4436-8cf7-75ec7cfff94c', '{"action":"user_recovery_requested","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"user"}', '2024-12-27 19:30:50.381401+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'ea542bad-5c9f-4466-ac2b-f73b5508a8f5', '{"action":"login","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"account"}', '2024-12-27 19:31:10.701089+00', ''),
+	('00000000-0000-0000-0000-000000000000', '8aa8d775-4bdf-4177-b6f5-72f329c56b12', '{"action":"user_modified","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"user"}', '2024-12-27 19:31:10.881694+00', ''),
+	('00000000-0000-0000-0000-000000000000', '96189b27-8414-4a6d-8d74-844fe9a3415a', '{"action":"token_refreshed","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:31:11.072705+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5bf5ffea-62e0-409f-9a58-0d9378dc188f', '{"action":"token_revoked","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-27 19:31:11.073369+00', ''),
+	('00000000-0000-0000-0000-000000000000', '35bf2e4f-588b-48f7-a699-3be2fa40edee', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-29 11:10:54.69266+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c1d298f6-fee8-402b-93fa-356cdb1bec24', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-29 11:10:54.693088+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2c2cc147-544f-4dc0-aa43-2cc2eb8cd341', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 11:22:31.616599+00', ''),
+	('00000000-0000-0000-0000-000000000000', '549076fa-49dd-4f5a-b8a2-fcb2caab2aaa', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 11:22:31.617456+00', ''),
+	('00000000-0000-0000-0000-000000000000', '20fe7694-fd96-4092-a861-3feec442c29a', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 11:31:18.149726+00', ''),
+	('00000000-0000-0000-0000-000000000000', '99c3c055-9ad4-4830-8f2a-44e2fd45ee81', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 11:31:18.150788+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1374a58c-9228-4387-8636-9ff0b8de54ed', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-29 12:16:28.013238+00', ''),
+	('00000000-0000-0000-0000-000000000000', '18eb6ebd-2a64-4487-9f81-46618b261551', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 12:16:28.21627+00', ''),
+	('00000000-0000-0000-0000-000000000000', '34e627c8-d1c4-4b0e-a454-92b0b98fe93b', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 12:16:28.21667+00', ''),
+	('00000000-0000-0000-0000-000000000000', '10007541-6ee8-4c1e-ab1a-861d7abb33f8', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-29 12:48:20.718173+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2d0d39e9-9ea8-485b-a339-738f1993e2ec', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 12:48:20.970294+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'fcb3d009-3564-4f1a-9b76-f20e7844350a', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 12:48:20.970729+00', ''),
+	('00000000-0000-0000-0000-000000000000', '294a57c3-48ea-4cd2-aaef-e4422c471af1', '{"action":"token_refreshed","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:12:15.833696+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4539bf71-0622-4e40-8d2f-a21c3efeb7d8', '{"action":"token_revoked","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:12:15.834814+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4f0a348f-50e0-4c85-8d9e-c6bcff76bb9d', '{"action":"user_recovery_requested","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user","traits":{"channel":"sms"}}', '2024-12-29 13:14:55.131669+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'a650f625-f8f5-4891-973a-39556f2122b3', '{"action":"user_signedup","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"team"}', '2024-12-29 13:15:00.058697+00', ''),
+	('00000000-0000-0000-0000-000000000000', '7bef69ff-ff36-4116-8d71-27a5133874b5', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-29 13:15:00.313301+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5c883f44-618c-4ce8-9bd0-61a1476a62bf', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:15:00.534941+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'b5f6f813-7423-4be8-a92c-9b3fece37c38', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:15:00.540709+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9fd2b15d-21eb-4bb2-869f-ec6014c685c2', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-29 13:15:52.699703+00', ''),
+	('00000000-0000-0000-0000-000000000000', '3befa38b-d001-498e-9928-8453cf1f38f8', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-29 13:16:10.238859+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'e9f09953-2f1b-4be4-accb-b8f5b98d5cdc', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:16:13.652433+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c0432cf7-98e6-483e-86ed-35d68b33cf17', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:16:13.653481+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9d52a194-a1d4-4127-8560-e9d2a41c4a67', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-29 13:27:26.464541+00', ''),
+	('00000000-0000-0000-0000-000000000000', '61b6e1ae-77a0-426a-9cd4-5f0ab1fb6053', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:27:26.771314+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1a863843-5447-4a45-a7a5-302b0b558609', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:27:26.771914+00', ''),
+	('00000000-0000-0000-0000-000000000000', '3bae72a4-c674-47b2-8024-6a187605ffbd', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:28:13.724587+00', ''),
+	('00000000-0000-0000-0000-000000000000', '859f7519-47a7-4124-9482-aad445c13323', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-29 13:28:13.725181+00', ''),
+	('00000000-0000-0000-0000-000000000000', '159c99c3-e781-4070-9114-39d73e635d81', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 14:27:31.573354+00', ''),
+	('00000000-0000-0000-0000-000000000000', '262442df-5693-41fa-abf8-d6439ce7f449', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 14:27:31.57411+00', ''),
+	('00000000-0000-0000-0000-000000000000', '03ac7774-7348-4f0d-a06a-279684d60932', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 15:22:09.913407+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6f80bdfe-46d9-457c-884d-0fb6d0ede68d', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 15:22:09.914269+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'a2798297-4c7a-4241-8bfb-7bd21ebf999d', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 16:26:48.438225+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1676882f-e447-4963-8f99-ffd510514546', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 16:26:48.439149+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'b226d898-097e-4b26-b8c6-a2344fb2f11e', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 16:31:44.660232+00', ''),
+	('00000000-0000-0000-0000-000000000000', '3e0f4919-7804-4549-ba96-679057bc9c52', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-29 16:31:44.661256+00', ''),
+	('00000000-0000-0000-0000-000000000000', '90e0eeb8-6bf8-48fc-a9ee-d702465a250b', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-29 17:19:11.533926+00', ''),
+	('00000000-0000-0000-0000-000000000000', '52481214-a208-4db2-97e1-cbb2ef6f7666', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 17:19:11.668765+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'a13be0cd-35cc-48a3-a129-5a792c78a8f3', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 17:19:11.669176+00', ''),
+	('00000000-0000-0000-0000-000000000000', '355911a7-3d1a-42dd-b3a6-de4b8bbea3e7', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 18:28:53.310383+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'def22a5e-0445-481f-aff3-5cc1808b1d10', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 18:28:53.311263+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'f8d7e43a-1f82-464f-af95-23453ff021f9', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-29 18:35:38.934813+00', ''),
+	('00000000-0000-0000-0000-000000000000', '20fcccf7-3e6c-4dae-a8c9-a3ad5c0640fa', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-29 18:35:38.935643+00', ''),
+	('00000000-0000-0000-0000-000000000000', '102380f6-6c63-4dcc-a3e9-1695da99fc4a', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-29 19:16:04.322588+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6fd94cf1-35e6-4832-81ab-6000485f7e3b', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 19:16:04.587312+00', ''),
+	('00000000-0000-0000-0000-000000000000', '41f9920f-6609-42e2-a136-16c63247eac6', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-29 19:16:04.587823+00', ''),
+	('00000000-0000-0000-0000-000000000000', '531d9ecd-2c63-4027-a558-1011fe3b9407', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 07:31:40.752341+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1e0d56d5-0ed1-4861-ba47-01f6690ccc5b', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 07:31:40.753931+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6ddc4a61-b859-4ccd-a5ce-0a4f70fbe7b8', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 08:33:03.93338+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6189977f-c0f8-4d64-a5f0-81961b7e8826', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 08:33:03.934355+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'ff654b43-0534-46ea-8d75-ae252e14e53f', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 08:37:17.449242+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6cefdc91-00e1-408a-8767-f18764075d96', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 08:37:17.616063+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'cd01f727-3df0-4de2-9884-359b37f6d286', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 08:37:17.616539+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'e414d049-8f23-4fc0-9d90-cfa63de5618a', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 08:44:02.876427+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c18895e8-4dfe-4bdf-af28-49c22e467f54', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 08:44:03.30862+00', ''),
+	('00000000-0000-0000-0000-000000000000', '753eb2e5-4e65-4485-8ba3-44f80df644a6', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 08:44:03.30917+00', ''),
+	('00000000-0000-0000-0000-000000000000', '116f7d1d-8d38-4e8a-b66d-ea78a95e526d', '{"action":"logout","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"account"}', '2024-12-30 08:49:28.957634+00', ''),
+	('00000000-0000-0000-0000-000000000000', '25806af9-135c-4eac-b167-955a340a26fd', '{"action":"user_recovery_requested","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user","traits":{"channel":"sms"}}', '2024-12-30 09:01:45.265512+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0cbfe3f9-5da4-4394-ad62-ed1456e586e8', '{"action":"user_signedup","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"team"}', '2024-12-30 09:01:47.875491+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd3713188-9993-4f0e-b96a-2ba412636fc7', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:01:48.075665+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2c4f3caa-54a6-484b-ae3b-4632df15b10f', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:01:48.252612+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6eb1b534-4eac-4cb0-9ad0-675e19fabf97', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:01:48.253641+00', ''),
+	('00000000-0000-0000-0000-000000000000', '36cb8ee2-963b-491c-b3cb-92079925f212', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:26:21.664611+00', ''),
+	('00000000-0000-0000-0000-000000000000', '28881e00-6a2a-4069-8aec-1515ba8af28e', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:26:21.885285+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0ed54134-3e3f-4bef-a8c2-a5f7737e1935', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:26:21.885737+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'a07dcecf-5ff4-4223-8593-5a4777c7707f', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:36:59.04133+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd2be3a6c-01df-4838-bf95-fc5e4b36d0b0', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:36:59.225309+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'cba2226f-603e-4e3d-bcec-09f81c3dedf8', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:36:59.225789+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1cc2bf11-ca71-4220-9712-34c1c48262ca', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:37:36.042187+00', ''),
+	('00000000-0000-0000-0000-000000000000', '47c34290-89a4-4cf7-bde6-402a7f048813', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:37:36.324697+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'af95f16d-a566-4df1-a6f0-995b063163bc', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:37:36.325229+00', ''),
+	('00000000-0000-0000-0000-000000000000', '3d9ddedb-71e6-4019-b76e-d49f62da3924', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:37:43.629241+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9dfe0404-c256-468c-9ce7-636b944685d0', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:37:43.861833+00', ''),
+	('00000000-0000-0000-0000-000000000000', '35c59a3f-fda0-4957-9856-98a12257774a', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:37:43.862339+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2d94ce62-8f37-44eb-aaf5-bf8d444e78ae', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:38:15.447148+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5b84a9e9-3fbf-4785-a271-88977bea55e8', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:38:15.618534+00', ''),
+	('00000000-0000-0000-0000-000000000000', '09cb162f-cc2a-488c-9853-adf196fcda63', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:38:15.619+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c196505c-e806-4260-bde5-e35a8c5ab601', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:38:54.955582+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2545f052-9282-4468-ac28-323ccef70fb4', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:38:55.118409+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5b0ef631-feec-4a46-a1a7-a4d0a2a91a8a', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:38:55.11886+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5a6a841f-4804-4fdc-a660-0a82d977bd33', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:39:15.234252+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'b4df4b21-8938-43d0-84b9-8ed9ad8b13a0', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:15.404842+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'f606cc6d-845c-44f5-8520-29122ea86074', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:15.405549+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2a4ae66d-c77b-4cda-a39f-c20bf96a0701', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:39:31.771467+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2978746b-1b29-46de-9ff6-2a09cf8287cd', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:31.932995+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'f1754a6a-653f-4568-8284-c51ad511a483', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:31.933463+00', ''),
+	('00000000-0000-0000-0000-000000000000', '688e58cb-de57-474f-9197-95ff69b549ed', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:39:49.605371+00', ''),
+	('00000000-0000-0000-0000-000000000000', '6e2d2d35-0ea3-4112-829f-c6ec1e83e7fa', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:49.783157+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'b03b9aaf-bddb-4f0e-a505-7634ff967ecc', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:49.783642+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'dc100fd5-ca3f-42ff-a8bd-8e331b0a133e', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:39:59.138446+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c56c7dae-2b24-4784-89c0-09f6a8bea4a2', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:59.358237+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5d095b87-fd57-4a48-a37d-97c6e8d6a73d', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:39:59.358873+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd6776f72-67f6-4aef-a39a-bdf0f55b2d5b', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:40:26.936462+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'bd475785-024e-4a53-80d1-42aac9a15dec', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:40:27.09966+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0b07fc74-113c-4484-b62e-c829acd10207', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:40:27.100117+00', ''),
+	('00000000-0000-0000-0000-000000000000', '26f23e53-7511-4d99-bd82-281866cddc64', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:40:50.025655+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4d14c8e0-f1af-427c-a861-d5de23ea5857', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:40:50.199647+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0054b39f-19aa-4a49-8187-d4d8d4aa3457', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:40:50.200234+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'e93c899d-71ba-4ca7-84dd-0f0ddb1abf99', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:49:31.694607+00', ''),
+	('00000000-0000-0000-0000-000000000000', '59be4ceb-67c6-4c70-90b7-b0e1ee60435f', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:49:31.890143+00', ''),
+	('00000000-0000-0000-0000-000000000000', '823a002d-9ea7-497d-b61d-8a0c4b8bfe5e', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:49:31.890762+00', ''),
+	('00000000-0000-0000-0000-000000000000', '198aafcb-9f6f-4ef7-8058-10b4bc4c4dbb', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 09:56:59.715739+00', ''),
+	('00000000-0000-0000-0000-000000000000', '624ee47a-18c3-4b2e-95b7-64f5ad536cc0', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:57:00.303987+00', ''),
+	('00000000-0000-0000-0000-000000000000', '7ff855c9-d33b-4f76-b365-c6cd4f7e4154', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 09:57:00.30463+00', ''),
+	('00000000-0000-0000-0000-000000000000', '21501251-19b9-42b0-aa04-a747583fb482', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 10:33:34.636286+00', ''),
+	('00000000-0000-0000-0000-000000000000', '731d512d-b754-4627-8315-d705ca5a239f', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:33:35.058607+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9277e187-3f42-4cc4-8b57-4e0fd16f7964', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:33:35.059218+00', ''),
+	('00000000-0000-0000-0000-000000000000', '517fb7df-746e-4668-b6a8-6fc153e6cb23', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 10:38:16.151909+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4ff4a0a3-20cf-4b7b-bcf8-35424dc5883e', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:38:16.338046+00', ''),
+	('00000000-0000-0000-0000-000000000000', '233ce09d-8216-437b-ab2c-6e36191eb47b', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:38:16.338595+00', ''),
+	('00000000-0000-0000-0000-000000000000', '482989b6-5b61-419b-b2a2-3c8057fcc24b', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 10:38:20.377854+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4abd01ab-0174-4711-8dd2-42758a7f23de', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:38:20.802966+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd4cce1b9-4124-4e8c-9c0f-b6bf6cf46fb5', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:38:20.803492+00', ''),
+	('00000000-0000-0000-0000-000000000000', '4575302e-fb7f-4b1c-8548-a885ba4671e9', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:43:05.127334+00', ''),
+	('00000000-0000-0000-0000-000000000000', '18c4836a-2b5f-45a6-ad6f-84402c0383d4', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 10:43:05.128185+00', ''),
+	('00000000-0000-0000-0000-000000000000', '0a34acd8-7c6a-4522-932f-62001a1cfb8b', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 11:42:27.638674+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'e98c6890-acdd-4d78-aa48-584c8e128861', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 11:42:27.639892+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'b6c1ecbb-1153-4c36-9c09-968010ea8c58', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:14:56.947528+00', ''),
+	('00000000-0000-0000-0000-000000000000', '347f40c1-f97c-440f-a00f-3e4e484ff5a1', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:14:56.948295+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'b286f7d2-1906-4447-8f36-c3c9000cf235', '{"action":"user_modified","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"user"}', '2024-12-30 12:20:10.81753+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'f9eb65dc-c24b-4c2e-8ccd-a3a7a4ea23fc', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:20:10.964215+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'e0bdcb18-8cfd-4f09-ac99-ceb4ebbbaab6', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:20:10.964669+00', ''),
+	('00000000-0000-0000-0000-000000000000', '02bbd8b7-abf1-4a71-815f-9122cc18258a', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:27:50.091909+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'ef2345d0-bb7b-446b-b4e4-8722103bb326', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:27:50.092636+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'ea9e55ee-8f60-44c3-9f26-bcb881feb3b5', '{"action":"token_refreshed","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:29:36.846348+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd0f7adde-4fd8-4569-802f-ae04205acdb1', '{"action":"token_revoked","actor_id":"d51170b3-31b3-4cb1-827e-8863bd3b5666","actor_username":"dawid.wojcik@beeloyal.app","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:29:36.847171+00', ''),
+	('00000000-0000-0000-0000-000000000000', '44388d86-7ff0-4818-8632-dd0ac36897d7', '{"action":"user_modified","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"user"}', '2024-12-30 12:30:48.370599+00', ''),
+	('00000000-0000-0000-0000-000000000000', '516c35a9-bc59-47b2-a373-c3fb0416da65', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:30:48.526547+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'df11d4e0-e072-4802-8e1f-1b0aaa5357df', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:30:48.52697+00', ''),
+	('00000000-0000-0000-0000-000000000000', '40549310-7f4e-4f3a-9002-59a7011d3c44', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:37:09.160802+00', ''),
+	('00000000-0000-0000-0000-000000000000', '28f80b4a-87b0-4b07-a303-da0aa57d6408', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:37:09.161882+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'f57c4f99-2935-4eb8-a991-1d36369d70f0', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-30 12:37:47.224276+00', ''),
+	('00000000-0000-0000-0000-000000000000', '89709403-01b3-4f20-812e-a26f5e8c4853', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:37:47.417781+00', ''),
+	('00000000-0000-0000-0000-000000000000', '06e51be3-c356-4559-a3ae-b0e77df0d3cb', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:37:47.418346+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1602f508-e74a-427c-96fa-894fb7baf9dd', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:38:40.456684+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1160f4ae-f53c-4a97-807d-282a49641b83', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-30 12:38:40.458648+00', ''),
+	('00000000-0000-0000-0000-000000000000', '7ac4d2c8-6197-4819-ab12-926bfa15f965', '{"action":"logout","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"account"}', '2024-12-30 12:47:39.309339+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c029bd60-b603-45ed-a19a-35d8d471ca5b', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 14:18:54.817885+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd3ba51d7-fee7-452a-8f21-9136e6679b29', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 14:18:54.818635+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'ad156f25-a9b5-47a4-a8bb-decec49926a7', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 17:48:31.212936+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9dbb4d6f-532e-4952-850c-77281764fb70', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-30 17:48:31.213863+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c2881bf3-8d7e-493d-924c-8c5de3aa0145', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-31 09:48:33.65689+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9939ab26-f7f5-4d88-a40a-d78296e82921', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-31 09:48:33.657944+00', ''),
+	('00000000-0000-0000-0000-000000000000', '9ff27712-cd7c-4ff7-8610-499e351ee049', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-31 12:54:54.075983+00', ''),
+	('00000000-0000-0000-0000-000000000000', '5117e190-4aa7-4630-95cf-695563681e03', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-31 12:54:54.076779+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'eb791fc7-879f-495d-9412-247c434e58bf', '{"action":"user_recovery_requested","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user","traits":{"channel":"sms"}}', '2024-12-31 12:59:56.206149+00', ''),
+	('00000000-0000-0000-0000-000000000000', '22cee8aa-666f-4a2b-b465-603f5c665a8b', '{"action":"user_signedup","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"team"}', '2024-12-31 12:59:58.840402+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'd9f50f28-d86a-4611-9ac6-5de534a1324b', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2024-12-31 12:59:59.021616+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2498d5ce-d56a-4207-9d7a-00146219bf13', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-31 12:59:59.168164+00', ''),
+	('00000000-0000-0000-0000-000000000000', '705a3cbb-4e42-443f-a437-7b2a28ff70e0', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2024-12-31 12:59:59.168557+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'caf9d68c-a963-4ff3-a2e4-4199482bf760', '{"action":"logout","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"account"}', '2024-12-31 13:00:02.272811+00', ''),
+	('00000000-0000-0000-0000-000000000000', '84797331-6658-4076-9975-16ee5313004b', '{"action":"user_recovery_requested","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"user"}', '2024-12-31 13:00:10.574398+00', ''),
+	('00000000-0000-0000-0000-000000000000', '7aba7a96-021f-43cc-8f30-413a35297cda', '{"action":"login","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"account"}', '2024-12-31 13:00:31.523506+00', ''),
+	('00000000-0000-0000-0000-000000000000', '7f6cdbc5-fd56-474c-85ee-b97b5cff5aff', '{"action":"user_modified","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"user"}', '2024-12-31 13:00:31.668533+00', ''),
+	('00000000-0000-0000-0000-000000000000', '15339d80-731f-498c-98a6-d0c2bad67501', '{"action":"token_refreshed","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-31 13:00:31.81326+00', ''),
+	('00000000-0000-0000-0000-000000000000', '08c2b02c-239a-4281-9bbe-0ed4008db594', '{"action":"token_revoked","actor_id":"dc91436a-cdf2-4bd2-8208-8b3443972808","actor_username":"lukasjanek99@gmail.com","actor_via_sso":false,"log_type":"token"}', '2024-12-31 13:00:31.81407+00', ''),
+	('00000000-0000-0000-0000-000000000000', '2f97b409-5b26-4746-b2f0-e47730a1c874', '{"action":"token_refreshed","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-31 21:30:10.948593+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'c9176ca8-d448-4b78-9386-c8ac10d66cca', '{"action":"token_revoked","actor_id":"65a96fd7-450c-4a2a-a6d1-a559ebacd726","actor_username":"48570820237","actor_via_sso":false,"log_type":"token"}', '2024-12-31 21:30:10.949507+00', ''),
+	('00000000-0000-0000-0000-000000000000', '74321f84-e66e-431b-9fac-0f4570515429', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2025-01-01 10:38:34.701335+00', ''),
+	('00000000-0000-0000-0000-000000000000', '46373270-c2ff-4e00-92e5-feca3692b59a', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2025-01-01 10:38:34.702315+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'aa297b6b-402a-4203-b092-0b8a211e9cb1', '{"action":"user_modified","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"user"}', '2025-01-01 10:38:35.082847+00', ''),
+	('00000000-0000-0000-0000-000000000000', 'bf66c1a6-e1c6-42d1-a79b-73a552122415', '{"action":"token_refreshed","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2025-01-01 10:38:35.210837+00', ''),
+	('00000000-0000-0000-0000-000000000000', '1afc2615-e0f0-4984-80a5-1cc5b0370480', '{"action":"token_revoked","actor_id":"1d56fb23-62f4-462e-8c02-764c910075ab","actor_username":"48666978350","actor_via_sso":false,"log_type":"token"}', '2025-01-01 10:38:35.212182+00', '');
 
 
 --
@@ -1266,7 +1460,10 @@ INSERT INTO "auth"."flow_state" ("id", "user_id", "auth_code", "code_challenge_m
 	('a180652d-dbf0-4438-a483-0c5649844a45', 'dc91436a-cdf2-4bd2-8208-8b3443972808', 'dcdb4822-61de-43c5-a267-b1985f0fa25b', 's256', 'dEr8qcKe9o5pzq71i6SZ9UF15bf3jhSWkmPDAmKj1Aw', 'magiclink', '', '', '2024-12-19 19:49:18.873072+00', '2024-12-19 19:49:18.873072+00', 'magiclink', NULL),
 	('f176b0f7-a602-4402-a90e-c6c6b0422ae8', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '9cc73226-e224-4260-bfac-e1dc9fe5678f', 's256', 'PSywM4CeskEExKzUgTVL7fTM0rVmnpRbOFtZHP5WnPo', 'magiclink', '', '', '2024-12-19 19:55:18.640537+00', '2024-12-19 19:55:18.640537+00', 'magiclink', NULL),
 	('43381cfc-71ed-4760-8c8b-7fe413cb65fd', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '6c0b3a1a-e1eb-4fc1-b251-13ea1e2be2a5', 's256', '1JTbX2AGDHIWvsTnVpHO3Sh1XfBUuXrB2hmwJgnJICE', 'magiclink', '', '', '2024-12-27 07:35:19.232203+00', '2024-12-27 07:35:19.232203+00', 'magiclink', NULL),
-	('5ed85ab6-48a2-4ae9-8e59-8971171a1526', 'dc91436a-cdf2-4bd2-8208-8b3443972808', 'ee980711-9dd8-4bc5-851e-4976d4b8b417', 's256', '9_oi_Q0nq6dxR2jn98chG9lZgcTanSZIjyhT60oOqiM', 'magiclink', '', '', '2024-12-27 07:37:22.042987+00', '2024-12-27 07:37:22.042987+00', 'magiclink', NULL);
+	('5ed85ab6-48a2-4ae9-8e59-8971171a1526', 'dc91436a-cdf2-4bd2-8208-8b3443972808', 'ee980711-9dd8-4bc5-851e-4976d4b8b417', 's256', '9_oi_Q0nq6dxR2jn98chG9lZgcTanSZIjyhT60oOqiM', 'magiclink', '', '', '2024-12-27 07:37:22.042987+00', '2024-12-27 07:37:22.042987+00', 'magiclink', NULL),
+	('ae06a519-6801-4f1d-b2f9-d6225cd65f2f', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '020dd326-1c0d-42af-94bb-0bb6ade5dd22', 's256', 'z6a3tybsMtCZmQgMYL0Pt63gFGDy9mcA44bPLQErQvg', 'magiclink', '', '', '2024-12-27 18:08:16.07067+00', '2024-12-27 18:08:16.07067+00', 'magiclink', NULL),
+	('fcf41843-d359-46d3-9ab4-8da122dc4073', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', 'ecaee4e9-fb96-40e5-9528-1280b7e7e7ce', 's256', 'k6CtNEva5S-Cnor3wZsZzuavRaWtoRsdBCkXwOxjvVM', 'magiclink', '', '', '2024-12-27 19:30:50.379095+00', '2024-12-27 19:30:50.379095+00', 'magiclink', NULL),
+	('512af4a6-368a-4901-bf23-009ee1039d06', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '7d09128d-ce86-4f31-ac12-94ea1b5db11b', 's256', '49ZWBCQQPp5EZ-PLcUatgqClTP5oVXwWZexYR03Grvs', 'magiclink', '', '', '2024-12-31 13:00:10.57268+00', '2024-12-31 13:00:10.57268+00', 'magiclink', NULL);
 
 
 --
@@ -1274,9 +1471,10 @@ INSERT INTO "auth"."flow_state" ("id", "user_id", "auth_code", "code_challenge_m
 --
 
 INSERT INTO "auth"."users" ("instance_id", "id", "aud", "role", "email", "encrypted_password", "email_confirmed_at", "invited_at", "confirmation_token", "confirmation_sent_at", "recovery_token", "recovery_sent_at", "email_change_token_new", "email_change", "email_change_sent_at", "last_sign_in_at", "raw_app_meta_data", "raw_user_meta_data", "is_super_admin", "created_at", "updated_at", "phone", "phone_confirmed_at", "phone_change", "phone_change_token", "phone_change_sent_at", "email_change_token_current", "email_change_confirm_status", "banned_until", "reauthentication_token", "reauthentication_sent_at", "is_sso_user", "deleted_at", "is_anonymous") VALUES
-	('00000000-0000-0000-0000-000000000000', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', 'authenticated', 'authenticated', 'dawid.wojcik@beeloyal.app', '$2a$10$27T8cnHNnwQ7VKZBbuWVJ.pMvIS/gB3k4.w03yWjMOeWIaAsyNALC', '2024-12-26 08:52:03.41671+00', NULL, '', NULL, '', NULL, '', '', NULL, NULL, '{"provider": "email", "providers": ["email"]}', '{}', NULL, '2024-12-26 08:52:03.412938+00', '2024-12-26 08:52:03.416896+00', NULL, NULL, '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false),
-	('00000000-0000-0000-0000-000000000000', 'dc91436a-cdf2-4bd2-8208-8b3443972808', 'authenticated', 'authenticated', 'lukasjanek99@gmail.com', '$2a$10$TK0GXLWor5lPtlhih4FfwOAQR4zDNEa3yyhWFJ8JC8KSfyDD6vH.a', '2024-11-24 14:06:17.649228+00', NULL, '', NULL, '', '2024-12-27 07:37:22.044447+00', '', '', NULL, '2024-12-27 07:37:44.43693+00', '{"provider": "email", "providers": ["email"]}', '{"app_id": "app.beeloyal.employer.beta", "app_version": "v1.0.0+276", "display_name": "Jan"}', NULL, '2024-11-24 14:06:17.643155+00', '2024-12-27 07:37:44.709188+00', NULL, NULL, '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false),
-	('00000000-0000-0000-0000-000000000000', '1d56fb23-62f4-462e-8c02-764c910075ab', 'authenticated', 'authenticated', 'jan.lukas@beeloyal.app', '$2a$10$EbWecpUlk3zYPMW0cf/6Su.jlscQ8p.bOTOWjn8NDYOcRf/T7EZ0y', '2024-12-17 07:56:58.47382+00', NULL, '', '2024-12-27 07:36:31.529261+00', '', NULL, '', '', '2024-12-17 07:56:42.770082+00', '2024-12-27 07:36:34.949468+00', '{"provider": "phone", "providers": ["phone", "email"]}', '{"sub": "1d56fb23-62f4-462e-8c02-764c910075ab", "app_id": "app.beeloyal.customer.beta", "app_version": "v1.0.0+275", "email_verified": false, "phone_verified": false}', NULL, '2024-11-23 19:26:14.401887+00', '2024-12-27 07:36:45.744452+00', '48666978350', '2024-12-27 07:36:34.947151+00', '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false);
+	('00000000-0000-0000-0000-000000000000', 'dc91436a-cdf2-4bd2-8208-8b3443972808', 'authenticated', 'authenticated', 'lukasjanek99@gmail.com', '$2a$10$TK0GXLWor5lPtlhih4FfwOAQR4zDNEa3yyhWFJ8JC8KSfyDD6vH.a', '2024-11-24 14:06:17.649228+00', NULL, '', NULL, '', '2024-12-31 13:00:10.575162+00', '', '', NULL, '2024-12-31 13:00:31.525041+00', '{"provider": "email", "providers": ["email"]}', '{"app_id": "app.beeloyal.employer.beta", "app_version": "v1.0.0+285", "display_name": "Jan"}', NULL, '2024-11-24 14:06:17.643155+00', '2024-12-31 13:00:31.828106+00', NULL, NULL, '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false),
+	('00000000-0000-0000-0000-000000000000', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', 'authenticated', 'authenticated', 'trekoxs@gmail.com', '$2a$10$JXPVfUBSrBzxVS5xCQ/tIeME47Jb7tBQBENc1mSIQqmJqFpTZlr06', '2024-12-29 13:16:10.241807+00', NULL, '', '2024-12-29 13:14:55.132663+00', '', NULL, '', '', '2024-12-29 13:15:51.095053+00', '2024-12-29 13:16:10.244373+00', '{"provider": "phone", "providers": ["phone", "email"]}', '{"sub": "65a96fd7-450c-4a2a-a6d1-a559ebacd726", "app_id": "app.beeloyal.customer.beta", "app_version": "v1.0.0+284", "email_verified": false, "phone_verified": false}', NULL, '2024-12-27 18:12:00.201558+00', '2024-12-31 21:30:10.951937+00', '48570820237', '2024-12-29 13:15:00.060773+00', '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false),
+	('00000000-0000-0000-0000-000000000000', '1d56fb23-62f4-462e-8c02-764c910075ab', 'authenticated', 'authenticated', 'jan.lukas@beeloyal.app', '$2a$10$EbWecpUlk3zYPMW0cf/6Su.jlscQ8p.bOTOWjn8NDYOcRf/T7EZ0y', '2024-12-17 07:56:58.47382+00', NULL, '', '2024-12-31 12:59:56.207331+00', '', NULL, '', '', '2024-12-17 07:56:42.770082+00', '2024-12-31 12:59:58.844676+00', '{"provider": "phone", "providers": ["phone", "email"]}', '{"sub": "1d56fb23-62f4-462e-8c02-764c910075ab", "app_id": "app.beeloyal.customer.beta", "app_version": "v1.0.0+284", "email_verified": false, "phone_verified": false}', NULL, '2024-11-23 19:26:14.401887+00', '2025-01-01 10:38:35.214041+00', '48666978350', '2024-12-31 12:59:58.840979+00', '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false),
+	('00000000-0000-0000-0000-000000000000', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', 'authenticated', 'authenticated', 'dawid.wojcik@beeloyal.app', '$2a$10$27T8cnHNnwQ7VKZBbuWVJ.pMvIS/gB3k4.w03yWjMOeWIaAsyNALC', '2024-12-26 08:52:03.41671+00', NULL, '', NULL, '', '2024-12-27 19:30:50.382299+00', '', '', NULL, '2024-12-27 19:31:10.703513+00', '{"provider": "email", "providers": ["email"]}', '{"app_id": "app.beeloyal.employer.beta", "app_version": "v1.0.0+276"}', NULL, '2024-12-26 08:52:03.412938+00', '2024-12-30 12:29:36.849519+00', NULL, NULL, '', '', NULL, '', 0, NULL, '', NULL, false, NULL, false);
 
 
 --
@@ -1286,8 +1484,10 @@ INSERT INTO "auth"."users" ("instance_id", "id", "aud", "role", "email", "encryp
 INSERT INTO "auth"."identities" ("provider_id", "user_id", "identity_data", "provider", "last_sign_in_at", "created_at", "updated_at", "id") VALUES
 	('1d56fb23-62f4-462e-8c02-764c910075ab', '1d56fb23-62f4-462e-8c02-764c910075ab', '{"sub": "1d56fb23-62f4-462e-8c02-764c910075ab", "email_verified": false, "phone_verified": false}', 'phone', '2024-11-23 19:26:14.404096+00', '2024-11-23 19:26:14.404128+00', '2024-11-23 19:26:14.404128+00', 'e0e9c49c-b622-466a-8b6f-c12a4e50a746'),
 	('dc91436a-cdf2-4bd2-8208-8b3443972808', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '{"sub": "dc91436a-cdf2-4bd2-8208-8b3443972808", "email": "lukasjanek99@gmail.com", "email_verified": false, "phone_verified": false}', 'email', '2024-11-24 14:06:17.645151+00', '2024-11-24 14:06:17.645792+00', '2024-11-24 14:06:17.645792+00', 'c2f12f96-35cf-47fa-89b8-040df1d07812'),
+	('65a96fd7-450c-4a2a-a6d1-a559ebacd726', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', '{"sub": "65a96fd7-450c-4a2a-a6d1-a559ebacd726", "email_verified": false, "phone_verified": false}', 'phone', '2024-12-27 18:12:00.20661+00', '2024-12-27 18:12:00.206676+00', '2024-12-27 18:12:00.206676+00', 'a7cf82b9-8df1-4167-970f-7d040f2e85b9'),
 	('d51170b3-31b3-4cb1-827e-8863bd3b5666', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '{"sub": "d51170b3-31b3-4cb1-827e-8863bd3b5666", "email": "dawid.wojcik@beeloyal.app", "email_verified": false, "phone_verified": false}', 'email', '2024-12-26 08:52:03.414581+00', '2024-12-26 08:52:03.414615+00', '2024-12-26 08:52:03.414615+00', '05cfabab-14c2-473b-9a6b-eb22b7bc1bf9'),
-	('1d56fb23-62f4-462e-8c02-764c910075ab', '1d56fb23-62f4-462e-8c02-764c910075ab', '{"sub": "1d56fb23-62f4-462e-8c02-764c910075ab", "email": "jan.lukas@beeloyal.app", "email_verified": true, "phone_verified": false}', 'email', '2024-12-17 07:56:58.472176+00', '2024-12-17 07:56:58.472213+00', '2024-12-17 07:56:58.474877+00', '31ea5a28-98da-4a6f-aa69-81ce2fa02291');
+	('1d56fb23-62f4-462e-8c02-764c910075ab', '1d56fb23-62f4-462e-8c02-764c910075ab', '{"sub": "1d56fb23-62f4-462e-8c02-764c910075ab", "email": "jan.lukas@beeloyal.app", "email_verified": true, "phone_verified": false}', 'email', '2024-12-17 07:56:58.472176+00', '2024-12-17 07:56:58.472213+00', '2024-12-17 07:56:58.474877+00', '31ea5a28-98da-4a6f-aa69-81ce2fa02291'),
+	('65a96fd7-450c-4a2a-a6d1-a559ebacd726', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', '{"sub": "65a96fd7-450c-4a2a-a6d1-a559ebacd726", "email": "trekoxs@gmail.com", "email_verified": true, "phone_verified": false}', 'email', '2024-12-29 13:16:10.239783+00', '2024-12-29 13:16:10.239825+00', '2024-12-29 13:16:10.242878+00', '76d9aac4-5fb2-4d8f-a357-7f3bf1cf48a4');
 
 
 --
@@ -1301,16 +1501,20 @@ INSERT INTO "auth"."identities" ("provider_id", "user_id", "identity_data", "pro
 --
 
 INSERT INTO "auth"."sessions" ("id", "user_id", "created_at", "updated_at", "factor_id", "aal", "not_after", "refreshed_at", "user_agent", "ip", "tag") VALUES
+	('6d97fd50-9213-4b9b-9ad1-0cd6ad7fa0a4', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', '2024-12-27 19:18:16.814927+00', '2024-12-27 19:18:17.276575+00', NULL, 'aal1', NULL, '2024-12-27 19:18:17.276456', 'Dart/3.5 (dart:io)', '89.64.34.161', NULL),
+	('f5dfe532-0c48-4649-a745-3952a3325ed4', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '2024-12-27 19:31:10.703605+00', '2024-12-27 19:31:11.076774+00', NULL, 'aal1', NULL, '2024-12-27 19:31:11.076681', 'Dart/3.5 (dart:io)', '89.64.34.161', NULL),
 	('26816947-08d0-45dd-9fa8-87b6d45454e8', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-14 10:06:16.805043+00', '2024-12-16 08:02:38.716735+00', NULL, 'aal1', NULL, '2024-12-16 08:02:38.716677', 'Dart/3.5 (dart:io)', '46.205.198.21', NULL),
+	('56ac8c3b-2db7-447c-aacf-7cda7283aaf6', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', '2024-12-29 13:16:10.244439+00', '2024-12-29 13:16:10.244439+00', NULL, 'aal1', NULL, NULL, 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/346.1.704810410 Mobile/15E148 Safari/604.1', '46.112.66.16', NULL),
 	('58189b52-0baa-44d6-9501-2cacba34651f', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-16 13:23:19.703962+00', '2024-12-16 13:23:20.246865+00', NULL, 'aal1', NULL, '2024-12-16 13:23:20.246813', 'Dart/3.5 (dart:io)', '46.205.198.234', NULL),
+	('d9c93010-18b2-440d-a0d8-b4102783fb7f', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '2024-12-27 18:08:31.43605+00', '2024-12-30 12:29:36.850898+00', NULL, 'aal1', NULL, '2024-12-30 12:29:36.850824', 'Dart/3.5 (dart:io)', '46.112.66.16', NULL),
 	('a79aec08-a470-45b7-a1d2-1228d043a08c', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-26 10:21:34.518196+00', '2024-12-26 11:20:56.050386+00', NULL, 'aal1', NULL, '2024-12-26 11:20:56.050316', 'Dart/3.5 (dart:io)', '46.205.198.119', NULL),
+	('72e864a4-fd41-4288-90db-9949bb1b3395', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-26 15:02:27.057116+00', '2024-12-30 12:37:47.421059+00', NULL, 'aal1', NULL, '2024-12-30 12:37:47.420987', 'Dart/3.5 (dart:io)', '46.205.199.95', NULL),
 	('82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-19 19:52:23.471191+00', '2024-12-24 10:55:25.813731+00', NULL, 'aal1', NULL, '2024-12-24 10:55:25.813649', 'Dart/3.5 (dart:io)', '46.205.198.119', NULL),
-	('1bbd3177-3b43-4a7a-8df3-3363535d0a23', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-19 19:55:50.905944+00', '2024-12-26 15:03:08.632264+00', NULL, 'aal1', NULL, '2024-12-26 15:03:08.632176', 'Dart/3.5 (dart:io)', '46.205.198.119', NULL),
-	('236e6b0e-b655-4af5-b0fc-94f2c26f7349', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-19 19:49:32.860166+00', '2024-12-19 19:49:33.189908+00', NULL, 'aal1', NULL, '2024-12-19 19:49:33.18982', 'Dart/3.5 (dart:io)', '46.205.198.234', NULL),
+	('1bbd3177-3b43-4a7a-8df3-3363535d0a23', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-19 19:55:50.905944+00', '2024-12-30 12:38:40.462061+00', NULL, 'aal1', NULL, '2024-12-30 12:38:40.461995', 'Dart/3.5 (dart:io)', '46.205.199.95', NULL),
 	('0a6eba1c-bcff-46fd-b995-97e11745075a', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-17 07:56:58.476545+00', '2024-12-17 07:56:58.476545+00', NULL, 'aal1', NULL, NULL, 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1.1 Mobile/15E148 Safari/604.1', '46.205.198.234', NULL),
-	('72e864a4-fd41-4288-90db-9949bb1b3395', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-26 15:02:27.057116+00', '2024-12-26 16:05:04.372824+00', NULL, 'aal1', NULL, '2024-12-26 16:05:04.372757', 'Dart/3.5 (dart:io)', '46.205.198.119', NULL),
-	('04b753e4-fe40-498d-a49e-cf0e7a7980c1', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-26 14:39:22.158415+00', '2024-12-27 07:36:45.745462+00', NULL, 'aal1', NULL, '2024-12-27 07:36:45.745385', 'Dart/3.5 (dart:io)', '46.205.198.119', NULL),
-	('8bf83b32-6bf4-403a-8ff2-fbd73d6dbf13', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-27 07:37:44.43698+00', '2024-12-27 07:37:44.710071+00', NULL, 'aal1', NULL, '2024-12-27 07:37:44.709903', 'Dart/3.5 (dart:io)', '46.205.198.119', NULL);
+	('4e5e28f2-3334-4f00-85f0-a68a0dbf792f', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-31 13:00:31.525104+00', '2024-12-31 13:00:31.828881+00', NULL, 'aal1', NULL, '2024-12-31 13:00:31.828816', 'Dart/3.5 (dart:io)', '46.205.199.95', NULL),
+	('cc9bb73c-060c-4d88-9359-b914979d66f2', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', '2024-12-29 13:15:00.064356+00', '2024-12-31 21:30:10.953663+00', NULL, 'aal1', NULL, '2024-12-31 21:30:10.953587', 'Dart/3.5 (dart:io)', '46.112.66.16', NULL),
+	('7e0666fb-b760-4170-a133-bdd608d9a7c8', '1d56fb23-62f4-462e-8c02-764c910075ab', '2024-12-30 09:01:47.880063+00', '2025-01-01 10:38:35.214915+00', NULL, 'aal1', NULL, '2025-01-01 10:38:35.214838', 'Dart/3.5 (dart:io)', '46.205.196.239', NULL);
 
 
 --
@@ -1321,13 +1525,17 @@ INSERT INTO "auth"."mfa_amr_claims" ("session_id", "created_at", "updated_at", "
 	('26816947-08d0-45dd-9fa8-87b6d45454e8', '2024-12-14 10:06:16.807446+00', '2024-12-14 10:06:16.807446+00', 'otp', '0f79bd28-e557-4b79-90c3-42f41bca51fe'),
 	('58189b52-0baa-44d6-9501-2cacba34651f', '2024-12-16 13:23:19.706853+00', '2024-12-16 13:23:19.706853+00', 'otp', '71167421-6719-497a-9e63-bcffbee55821'),
 	('0a6eba1c-bcff-46fd-b995-97e11745075a', '2024-12-17 07:56:58.477933+00', '2024-12-17 07:56:58.477933+00', 'otp', 'cd897645-c834-4bcd-8eaf-3ce94dde5349'),
-	('236e6b0e-b655-4af5-b0fc-94f2c26f7349', '2024-12-19 19:49:32.862236+00', '2024-12-19 19:49:32.862236+00', 'otp', '92870315-bb45-4d89-94ef-746a6b41e98a'),
 	('82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e', '2024-12-19 19:52:23.473157+00', '2024-12-19 19:52:23.473157+00', 'otp', 'bd3ca296-b704-41ed-bc0f-3d1428ecdafe'),
 	('1bbd3177-3b43-4a7a-8df3-3363535d0a23', '2024-12-19 19:55:50.907513+00', '2024-12-19 19:55:50.907513+00', 'otp', '3ef3578b-7d85-403c-9d48-9007f1536b31'),
 	('a79aec08-a470-45b7-a1d2-1228d043a08c', '2024-12-26 10:21:34.521177+00', '2024-12-26 10:21:34.521177+00', 'otp', '0dee11b7-2a80-4a48-b1c1-97728c2dc621'),
-	('04b753e4-fe40-498d-a49e-cf0e7a7980c1', '2024-12-26 14:39:22.160171+00', '2024-12-26 14:39:22.160171+00', 'otp', 'a50cc3c8-52f7-42ed-a0df-7431d9572d1c'),
 	('72e864a4-fd41-4288-90db-9949bb1b3395', '2024-12-26 15:02:27.059596+00', '2024-12-26 15:02:27.059596+00', 'otp', '40200c3c-ed13-4382-bd9d-60e603ee0352'),
-	('8bf83b32-6bf4-403a-8ff2-fbd73d6dbf13', '2024-12-27 07:37:44.438551+00', '2024-12-27 07:37:44.438551+00', 'otp', '9e881789-ea27-4066-8e05-144ffaffb65b');
+	('d9c93010-18b2-440d-a0d8-b4102783fb7f', '2024-12-27 18:08:31.437946+00', '2024-12-27 18:08:31.437946+00', 'otp', 'bad3609c-d56a-4eba-a6b2-ed283c081682'),
+	('6d97fd50-9213-4b9b-9ad1-0cd6ad7fa0a4', '2024-12-27 19:18:16.816589+00', '2024-12-27 19:18:16.816589+00', 'otp', '6bbabd36-1fcd-4dda-b5d4-7ce58dc3f2db'),
+	('f5dfe532-0c48-4649-a745-3952a3325ed4', '2024-12-27 19:31:10.706454+00', '2024-12-27 19:31:10.706454+00', 'otp', '915d0486-7734-4f66-a752-7417c578bb3c'),
+	('cc9bb73c-060c-4d88-9359-b914979d66f2', '2024-12-29 13:15:00.068481+00', '2024-12-29 13:15:00.068481+00', 'otp', '2021d7c7-8be9-4481-af87-602b102df0d9'),
+	('56ac8c3b-2db7-447c-aacf-7cda7283aaf6', '2024-12-29 13:16:10.246071+00', '2024-12-29 13:16:10.246071+00', 'otp', 'fefa228b-0e89-46ad-8925-cee86f9e1189'),
+	('7e0666fb-b760-4170-a133-bdd608d9a7c8', '2024-12-30 09:01:47.885598+00', '2024-12-30 09:01:47.885598+00', 'otp', 'c004e39b-9bcd-442f-a5f8-795424dce62c'),
+	('4e5e28f2-3334-4f00-85f0-a68a0dbf792f', '2024-12-31 13:00:31.527031+00', '2024-12-31 13:00:31.527031+00', 'otp', '13c4e171-e000-49a8-98b5-6846299d053b');
 
 
 --
@@ -1353,25 +1561,29 @@ INSERT INTO "auth"."mfa_amr_claims" ("session_id", "created_at", "updated_at", "
 --
 
 INSERT INTO "auth"."refresh_tokens" ("instance_id", "id", "token", "user_id", "revoked", "created_at", "updated_at", "parent", "session_id") VALUES
+	('00000000-0000-0000-0000-000000000000', 473, '0ZR8zulTkvVrBwPW_Fynew', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:01:47.883368+00', '2024-12-30 09:01:48.257232+00', NULL, '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 474, 'xmYBYicWSoHRVqP-1ZgiDg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:01:48.258151+00', '2024-12-30 09:26:21.886087+00', '0ZR8zulTkvVrBwPW_Fynew', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 488, 'GUFlZi7LEHyh657fTh9Wsg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:57:00.305784+00', '2024-12-30 10:33:35.059767+00', 'X4HT1NCqvSZZkVMqxhYRng', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 415, 'BJtydbSLOfVxnZ8noeVbzQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 10:21:34.519593+00', '2024-12-26 10:21:35.323895+00', NULL, 'a79aec08-a470-45b7-a1d2-1228d043a08c'),
 	('00000000-0000-0000-0000-000000000000', 416, '8BYKVY5vfmMz_KmZPoVD5Q', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 10:21:35.32907+00', '2024-12-26 11:20:56.046665+00', 'BJtydbSLOfVxnZ8noeVbzQ', 'a79aec08-a470-45b7-a1d2-1228d043a08c'),
 	('00000000-0000-0000-0000-000000000000', 422, 'TbP4oCJihy4KF-CjFL1rQA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 15:02:27.05798+00', '2024-12-26 15:02:27.580703+00', NULL, '72e864a4-fd41-4288-90db-9949bb1b3395'),
-	('00000000-0000-0000-0000-000000000000', 424, 'oZeOgu8hxtepG_Vr2wQNLw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', false, '2024-12-26 15:03:08.63008+00', '2024-12-26 15:03:08.63008+00', 'iV8zXK-qKw_CCQfl6pMIqA', '1bbd3177-3b43-4a7a-8df3-3363535d0a23'),
 	('00000000-0000-0000-0000-000000000000', 423, 'TmAX_NRU9_WFjw_lWDaHEQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 15:02:27.581258+00', '2024-12-26 16:05:04.369321+00', 'TbP4oCJihy4KF-CjFL1rQA', '72e864a4-fd41-4288-90db-9949bb1b3395'),
 	('00000000-0000-0000-0000-000000000000', 76, 'oy8jdaExaOcSduYghaRi0g', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 10:06:16.805786+00', '2024-12-14 10:06:17.1686+00', NULL, '26816947-08d0-45dd-9fa8-87b6d45454e8'),
+	('00000000-0000-0000-0000-000000000000', 497, 'pHFY0fdQDChKKQ1Eh-Vypg', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', false, '2024-12-30 12:29:36.84841+00', '2024-12-30 12:29:36.84841+00', '6kLqY0uQsQF00qkpSDqArw', 'd9c93010-18b2-440d-a0d8-b4102783fb7f'),
 	('00000000-0000-0000-0000-000000000000', 77, 'riURBPjnTVxhhQ5v4Np_-w', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 10:06:17.16922+00', '2024-12-14 11:05:44.91674+00', 'oy8jdaExaOcSduYghaRi0g', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 78, 'fk36vSANxF2lqXve3A5c8g', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 11:05:44.917236+00', '2024-12-14 12:05:04.94215+00', 'riURBPjnTVxhhQ5v4Np_-w', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
+	('00000000-0000-0000-0000-000000000000', 424, 'oZeOgu8hxtepG_Vr2wQNLw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-26 15:03:08.63008+00', '2024-12-30 12:38:40.459278+00', 'iV8zXK-qKw_CCQfl6pMIqA', '1bbd3177-3b43-4a7a-8df3-3363535d0a23'),
 	('00000000-0000-0000-0000-000000000000', 79, 'n9ImQZ5nZBfoSt_3qICJsw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 12:05:04.942753+00', '2024-12-14 13:04:24.833389+00', 'fk36vSANxF2lqXve3A5c8g', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 80, 'qHWaPP5KPL3IF-eYcuVKEQ', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 13:04:24.833947+00', '2024-12-14 14:03:50.089841+00', 'n9ImQZ5nZBfoSt_3qICJsw', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
-	('00000000-0000-0000-0000-000000000000', 431, 'v-AW0Oi_AMGz7nULdjU0Ug', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-27 07:36:00.627205+00', '2024-12-27 07:36:45.742227+00', 'wbP0Ow2fKwiTKwPL9eanMA', '04b753e4-fe40-498d-a49e-cf0e7a7980c1'),
+	('00000000-0000-0000-0000-000000000000', 504, 'RPRVbitR-ZNcc2uDy6p0RQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-31 09:48:33.659262+00', '2024-12-31 12:54:54.077283+00', 'tM_quw4JrFNX5f6BjHvgQQ', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 81, 'RAhiE-BjlehEtbUUMSMyPw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 14:03:50.090373+00', '2024-12-14 15:03:20.086374+00', 'qHWaPP5KPL3IF-eYcuVKEQ', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
-	('00000000-0000-0000-0000-000000000000', 434, 'yKYm8VNr6DChcg52goJXTQ', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-27 07:36:45.743616+00', '2024-12-27 07:36:45.743616+00', 'v-AW0Oi_AMGz7nULdjU0Ug', '04b753e4-fe40-498d-a49e-cf0e7a7980c1'),
+	('00000000-0000-0000-0000-000000000000', 498, 'pehW_hJ-PPf2u9xph0zeoQ', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-30 12:30:48.527701+00', '2024-12-31 21:30:10.949995+00', 'KIH5vGFqjFfionCamHAHdQ', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
 	('00000000-0000-0000-0000-000000000000', 82, 'fzvb4u-4A1OVDNSed0KaTw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 15:03:20.08713+00', '2024-12-14 16:02:50.063611+00', 'RAhiE-BjlehEtbUUMSMyPw', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 83, 'xKcRfYdEuX50qKDjWCzHaw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 16:02:50.06429+00', '2024-12-14 16:34:09.770078+00', 'fzvb4u-4A1OVDNSed0KaTw', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
-	('00000000-0000-0000-0000-000000000000', 435, 'fO_oMLB2yrQiaNxwI7r9sQ', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-27 07:37:44.437628+00', '2024-12-27 07:37:44.708335+00', NULL, '8bf83b32-6bf4-403a-8ff2-fbd73d6dbf13'),
 	('00000000-0000-0000-0000-000000000000', 84, 'OWIE4D6PcKmazpVk9aUJRA', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 16:34:09.770729+00', '2024-12-14 17:06:20.018697+00', 'xKcRfYdEuX50qKDjWCzHaw', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
-	('00000000-0000-0000-0000-000000000000', 436, 'Q_VKj1yjocXFBV9XOqaRig', 'dc91436a-cdf2-4bd2-8208-8b3443972808', false, '2024-12-27 07:37:44.708604+00', '2024-12-27 07:37:44.708604+00', 'fO_oMLB2yrQiaNxwI7r9sQ', '8bf83b32-6bf4-403a-8ff2-fbd73d6dbf13'),
+	('00000000-0000-0000-0000-000000000000', 511, '3ehCWUdogk5InuSgSP9zpg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2025-01-01 10:38:34.703697+00', '2025-01-01 10:38:35.212691+00', 'wAt7nabwzN5LSgitmIKCZw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 85, 'jwIUaosPfE0f4lAYZdBmBQ', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 17:06:20.01937+00', '2024-12-14 17:06:31.972035+00', 'OWIE4D6PcKmazpVk9aUJRA', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
+	('00000000-0000-0000-0000-000000000000', 512, 'TxVc8sAGcF8FiJTfWZq0FA', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2025-01-01 10:38:35.213106+00', '2025-01-01 10:38:35.213106+00', '3ehCWUdogk5InuSgSP9zpg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 86, 'C-44eodDrddWI6RIfFdgpQ', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 17:06:31.972528+00', '2024-12-14 17:09:10.267413+00', 'jwIUaosPfE0f4lAYZdBmBQ', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 87, 'jOuDQFI9U8BC56EWRMMsmg', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 17:09:10.267882+00', '2024-12-14 18:08:23.341533+00', 'C-44eodDrddWI6RIfFdgpQ', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 88, 'XmRRWD49t0kcinlqQTFvZg', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 18:08:23.342009+00', '2024-12-14 18:09:38.071835+00', 'jOuDQFI9U8BC56EWRMMsmg', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
@@ -1381,16 +1593,31 @@ INSERT INTO "auth"."refresh_tokens" ("instance_id", "id", "token", "user_id", "r
 	('00000000-0000-0000-0000-000000000000', 90, '2ztZK8KVgOPktn9AwuuvDQ', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 19:09:07.530267+00', '2024-12-14 19:20:03.042468+00', 'oUC17akSF-3uTWTe5vFiJg', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 91, 'ByBrcYy_SaT9kvFm0S6IFw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 19:20:03.043215+00', '2024-12-14 19:40:07.985359+00', '2ztZK8KVgOPktn9AwuuvDQ', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 92, 'NV-ZwkH_xP-ULU9UPSHvFw', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 19:40:07.985882+00', '2024-12-14 19:48:31.445326+00', 'ByBrcYy_SaT9kvFm0S6IFw', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
+	('00000000-0000-0000-0000-000000000000', 455, 'EKp_Hl_UrmV97A03vLHp9Q', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-29 13:15:00.065863+00', '2024-12-29 13:15:00.541261+00', NULL, 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
+	('00000000-0000-0000-0000-000000000000', 457, '5XUvdRc1tUN9ybqCcvaf5A', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', false, '2024-12-29 13:16:10.244991+00', '2024-12-29 13:16:10.244991+00', NULL, '56ac8c3b-2db7-447c-aacf-7cda7283aaf6'),
 	('00000000-0000-0000-0000-000000000000', 93, 'STxd0MAKopLDXu2CN3xQag', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 19:48:31.445793+00', '2024-12-14 19:49:45.47638+00', 'NV-ZwkH_xP-ULU9UPSHvFw', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
+	('00000000-0000-0000-0000-000000000000', 456, '4dj0DpUITUIWcyVgiXjS9A', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-29 13:15:00.54185+00', '2024-12-29 13:16:13.654054+00', 'EKp_Hl_UrmV97A03vLHp9Q', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
 	('00000000-0000-0000-0000-000000000000', 94, 'PC9CQsU6qefvBItkwSf07w', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 19:49:45.476815+00', '2024-12-14 20:16:01.123308+00', 'STxd0MAKopLDXu2CN3xQag', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
 	('00000000-0000-0000-0000-000000000000', 95, 'qiVp0L48faA-TfT5tmWH1g', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-14 20:16:01.123934+00', '2024-12-14 20:22:27.088748+00', 'PC9CQsU6qefvBItkwSf07w', '26816947-08d0-45dd-9fa8-87b6d45454e8'),
+	('00000000-0000-0000-0000-000000000000', 458, 'Wiu8yfrQrBscAJGYcwjw7Q', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-29 13:16:13.654979+00', '2024-12-29 13:27:26.772297+00', '4dj0DpUITUIWcyVgiXjS9A', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
 	('00000000-0000-0000-0000-000000000000', 129, 'D4U9aK2jLbR2YP5XQ_aovw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-16 13:23:19.704965+00', '2024-12-16 13:23:20.244605+00', NULL, '58189b52-0baa-44d6-9501-2cacba34651f'),
 	('00000000-0000-0000-0000-000000000000', 130, 'SxWhpaKiWWIAq28aWIDU6Q', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-16 13:23:20.245053+00', '2024-12-16 13:23:20.245053+00', 'D4U9aK2jLbR2YP5XQ_aovw', '58189b52-0baa-44d6-9501-2cacba34651f'),
+	('00000000-0000-0000-0000-000000000000', 475, '88bfYYQnGKeNEM42SyMEkw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:26:21.886632+00', '2024-12-30 09:36:59.226303+00', 'xmYBYicWSoHRVqP-1ZgiDg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 489, 'YWfvenDBurtQf9T4PQ1eyw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 10:33:35.060739+00', '2024-12-30 10:38:16.33902+00', 'GUFlZi7LEHyh657fTh9Wsg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 464, '6scbpOmF1haru5UUXPbF6A', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-29 16:31:44.662645+00', '2024-12-30 12:27:50.093016+00', 'cielOSAltz2u5vHC4KBntA', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
+	('00000000-0000-0000-0000-000000000000', 499, 'UhFegRQrnb92mV292S5cUA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 12:37:09.163314+00', '2024-12-30 12:37:47.419037+00', '2Q-EiU_OrAU1BDLLab1Kjw', '72e864a4-fd41-4288-90db-9949bb1b3395'),
 	('00000000-0000-0000-0000-000000000000', 417, '77vPSG_saZiGnZ_QezscYQ', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-26 11:20:56.047738+00', '2024-12-26 11:20:56.047738+00', '8BYKVY5vfmMz_KmZPoVD5Q', 'a79aec08-a470-45b7-a1d2-1228d043a08c'),
 	('00000000-0000-0000-0000-000000000000', 196, 'iV8zXK-qKw_CCQfl6pMIqA', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-19 19:55:51.254447+00', '2024-12-26 15:03:08.629561+00', 'vSKWdak0z5KkEU1ByqcpJA', '1bbd3177-3b43-4a7a-8df3-3363535d0a23'),
+	('00000000-0000-0000-0000-000000000000', 500, 'U6_jr9YiUSaIOYKQ12VRyA', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-30 12:37:47.419381+00', '2024-12-30 12:37:47.419381+00', 'UhFegRQrnb92mV292S5cUA', '72e864a4-fd41-4288-90db-9949bb1b3395'),
+	('00000000-0000-0000-0000-000000000000', 501, 'ErERTkvmE9DARFzBl5Itmg', 'dc91436a-cdf2-4bd2-8208-8b3443972808', false, '2024-12-30 12:38:40.46003+00', '2024-12-30 12:38:40.46003+00', 'oZeOgu8hxtepG_Vr2wQNLw', '1bbd3177-3b43-4a7a-8df3-3363535d0a23'),
 	('00000000-0000-0000-0000-000000000000', 146, 'sLjXngSYJvtyfc_h3GGrqw', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-17 07:56:58.477183+00', '2024-12-17 07:56:58.477183+00', NULL, '0a6eba1c-bcff-46fd-b995-97e11745075a'),
-	('00000000-0000-0000-0000-000000000000', 189, 'qUCpKsop7b6p-1tD1MVnhQ', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-19 19:49:32.86096+00', '2024-12-19 19:49:33.187745+00', NULL, '236e6b0e-b655-4af5-b0fc-94f2c26f7349'),
-	('00000000-0000-0000-0000-000000000000', 190, 'cbbNwS5yDWJC4TERhcIDzg', 'dc91436a-cdf2-4bd2-8208-8b3443972808', false, '2024-12-19 19:49:33.188247+00', '2024-12-19 19:49:33.188247+00', 'qUCpKsop7b6p-1tD1MVnhQ', '236e6b0e-b655-4af5-b0fc-94f2c26f7349'),
+	('00000000-0000-0000-0000-000000000000', 494, '8EQC7gX2-DE6x-VDwqUOvg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 12:14:56.949354+00', '2024-12-30 14:18:54.819035+00', 'mtMx8tTHE8EVQ3L6Rwiixw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 505, 'wAt7nabwzN5LSgitmIKCZw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-31 12:54:54.077999+00', '2025-01-01 10:38:34.702815+00', 'RPRVbitR-ZNcc2uDy6p0RQ', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 438, 'SvmJfRShrpiOSQS4IHR56Q', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', true, '2024-12-27 18:08:31.436749+00', '2024-12-27 18:08:31.772504+00', NULL, 'd9c93010-18b2-440d-a0d8-b4102783fb7f'),
+	('00000000-0000-0000-0000-000000000000', 439, 'HbVZAjun5AKqkNPN69aQsg', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', true, '2024-12-27 18:08:31.772832+00', '2024-12-27 19:17:38.87925+00', 'SvmJfRShrpiOSQS4IHR56Q', 'd9c93010-18b2-440d-a0d8-b4102783fb7f'),
+	('00000000-0000-0000-0000-000000000000', 447, 'S5fQc_P1DscFfmiIDldwFg', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', true, '2024-12-27 19:31:10.704714+00', '2024-12-27 19:31:11.073865+00', NULL, 'f5dfe532-0c48-4649-a745-3952a3325ed4'),
+	('00000000-0000-0000-0000-000000000000', 448, 'cChQK8-PgGWPw9VLNVBdLQ', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', false, '2024-12-27 19:31:11.074575+00', '2024-12-27 19:31:11.074575+00', 'S5fQc_P1DscFfmiIDldwFg', 'f5dfe532-0c48-4649-a745-3952a3325ed4'),
+	('00000000-0000-0000-0000-000000000000', 459, 'aOuJfs37iX77UDCY28LHNQ', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-29 13:27:26.772906+00', '2024-12-29 15:22:09.914686+00', 'Wiu8yfrQrBscAJGYcwjw7Q', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
 	('00000000-0000-0000-0000-000000000000', 191, 'b4afxAPSO3hyIMgT8ZQqAA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-19 19:52:23.472032+00', '2024-12-19 19:52:23.762402+00', NULL, '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 195, 'vSKWdak0z5KkEU1ByqcpJA', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-19 19:55:50.906571+00', '2024-12-19 19:55:51.254067+00', NULL, '1bbd3177-3b43-4a7a-8df3-3363535d0a23'),
 	('00000000-0000-0000-0000-000000000000', 192, '95mS3vPhu2ULdV_lrz9uWA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-19 19:52:23.762973+00', '2024-12-19 20:06:22.170351+00', 'b4afxAPSO3hyIMgT8ZQqAA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
@@ -1454,6 +1681,7 @@ INSERT INTO "auth"."refresh_tokens" ("instance_id", "id", "token", "user_id", "r
 	('00000000-0000-0000-0000-000000000000', 259, 'VKf3YyPkIVsFSQhTg6OvbA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-22 10:06:14.602669+00', '2024-12-22 10:07:19.427128+00', '_JGHVH8zqrcWlMX1-p-ojQ', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 260, 'EBn43-a6_MKaO3OaykzNIg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-22 10:07:19.427837+00', '2024-12-22 10:09:17.523147+00', 'VKf3YyPkIVsFSQhTg6OvbA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 261, '83kzPzLniOYBMwJl6WSd0Q', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-22 10:09:17.523733+00', '2024-12-22 10:11:47.04364+00', 'EBn43-a6_MKaO3OaykzNIg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 476, '8VKR0bMqsPskH8zdfIcVfw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:36:59.226917+00', '2024-12-30 09:37:36.32604+00', '88bfYYQnGKeNEM42SyMEkw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 262, 'pZQIAqcvyB5XY7pi4STUYg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-22 10:11:47.044236+00', '2024-12-22 10:20:39.529889+00', '83kzPzLniOYBMwJl6WSd0Q', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 263, 'wAkbYO8O41Rt7NGyAieNxQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-22 10:20:39.530372+00', '2024-12-22 10:21:53.411076+00', 'pZQIAqcvyB5XY7pi4STUYg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 264, 'd7srT3wJKsgMlxE2LoFXMA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-22 10:21:53.411727+00', '2024-12-22 10:25:57.298429+00', 'wAkbYO8O41Rt7NGyAieNxQ', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
@@ -1501,27 +1729,48 @@ INSERT INTO "auth"."refresh_tokens" ("instance_id", "id", "token", "user_id", "r
 	('00000000-0000-0000-0000-000000000000', 306, 'vAu7Bkdxo3O6IfCQFS18Dg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 06:37:46.094933+00', '2024-12-24 07:37:16.028461+00', 'CkEYtwViuvd0-PwaRG0NUg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 310, 'Ldt-lEFohFKoctKOgRaVyg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 07:50:11.755635+00', '2024-12-24 07:54:50.146184+00', 'N9shentilATkdQeumE39Xg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 307, 'cqgLpSmGMNy6hVaACHq0ug', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 07:37:16.029269+00', '2024-12-24 07:38:46.022375+00', 'vAu7Bkdxo3O6IfCQFS18Dg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 477, '7h8yjMR8abMW6dKfWAOF-w', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:37:36.326346+00', '2024-12-30 09:37:43.862733+00', '8VKR0bMqsPskH8zdfIcVfw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 311, 'WSIfjjaTCYbNC1J_22s-ug', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 07:54:50.146739+00', '2024-12-24 09:09:34.136748+00', 'Ldt-lEFohFKoctKOgRaVyg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 312, 'R2ZTLEZtvq7lFG4fJGcKXA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 09:09:34.137604+00', '2024-12-24 09:24:48.622402+00', 'WSIfjjaTCYbNC1J_22s-ug', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 478, 'soe8koIo0q2_Xf7j7JzWHg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:37:43.863003+00', '2024-12-30 09:38:15.619362+00', '7h8yjMR8abMW6dKfWAOF-w', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 313, '-qPdgs5g0l5IQo52OuicBg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 09:24:48.623105+00', '2024-12-24 09:33:29.095268+00', 'R2ZTLEZtvq7lFG4fJGcKXA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 314, 'bsWL85WLXJrezbpVs2qVTg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 09:33:29.095787+00', '2024-12-24 09:37:39.035301+00', '-qPdgs5g0l5IQo52OuicBg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 479, 'Mtl_oJ_UvYe3f8LsgscElw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:38:15.61973+00', '2024-12-30 09:38:55.119623+00', 'soe8koIo0q2_Xf7j7JzWHg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 315, 'srj8Tyt-ILCuuHW1Kdt1UQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 09:37:39.03587+00', '2024-12-24 09:49:22.454826+00', 'bsWL85WLXJrezbpVs2qVTg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 316, 'bEnG5ns93u-m2HqGNiJ--A', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 09:49:22.455578+00', '2024-12-24 10:06:28.050662+00', 'srj8Tyt-ILCuuHW1Kdt1UQ', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 480, '7H1OYnViaaWFNwrcHcwviQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:38:55.119956+00', '2024-12-30 09:39:15.406045+00', 'Mtl_oJ_UvYe3f8LsgscElw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 317, 'yTiIjZ4urIGm4hZYPiqSAA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:06:28.051328+00', '2024-12-24 10:07:38.666532+00', 'bEnG5ns93u-m2HqGNiJ--A', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
-	('00000000-0000-0000-0000-000000000000', 426, '2Q-EiU_OrAU1BDLLab1Kjw', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-26 16:05:04.370406+00', '2024-12-26 16:05:04.370406+00', 'TmAX_NRU9_WFjw_lWDaHEQ', '72e864a4-fd41-4288-90db-9949bb1b3395'),
 	('00000000-0000-0000-0000-000000000000', 318, 'sckpImOQXhjrKr1mE68sDg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:07:38.667005+00', '2024-12-24 10:07:51.568252+00', 'yTiIjZ4urIGm4hZYPiqSAA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 319, 'mUG7M8HJfFWCzn3yRIHBZA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:07:51.568666+00', '2024-12-24 10:14:54.486512+00', 'sckpImOQXhjrKr1mE68sDg', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 481, 'N1XIl_F6LZGASwtHgs6JVw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:39:15.406453+00', '2024-12-30 09:39:31.933857+00', '7H1OYnViaaWFNwrcHcwviQ', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 320, 'nmEYxrDTRRjDK6tBEdOhKA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:14:54.48753+00', '2024-12-24 10:16:16.03174+00', 'mUG7M8HJfFWCzn3yRIHBZA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 321, 'uwjAw9vy2_p7Djt7rOCKBA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:16:16.032208+00', '2024-12-24 10:25:22.267003+00', 'nmEYxrDTRRjDK6tBEdOhKA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 482, 'r90EM-9GXxN6iz3b26CA5A', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:39:31.934119+00', '2024-12-30 09:39:49.783967+00', 'N1XIl_F6LZGASwtHgs6JVw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 322, 'jOTLqr6_7anQ-k91DO9I0g', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:25:22.267587+00', '2024-12-24 10:40:37.583877+00', 'uwjAw9vy2_p7Djt7rOCKBA', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 323, 'H21ZkVEkcX_NqiiI7vgw7w', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:40:37.584716+00', '2024-12-24 10:42:56.561881+00', 'jOTLqr6_7anQ-k91DO9I0g', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 324, 'nOnr-sTK27KzenlHkgigkw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:42:56.562446+00', '2024-12-24 10:48:09.50744+00', 'H21ZkVEkcX_NqiiI7vgw7w', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
+	('00000000-0000-0000-0000-000000000000', 483, 'kkMj-DhzL98QfQElBVC7yg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:39:49.784213+00', '2024-12-30 09:39:59.359368+00', 'r90EM-9GXxN6iz3b26CA5A', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
 	('00000000-0000-0000-0000-000000000000', 325, 'D-kuQ8W40RWcVv85SR3sBw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:48:09.508191+00', '2024-12-24 10:53:20.281386+00', 'nOnr-sTK27KzenlHkgigkw', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 326, '2tAq227nwLyaCF7wmXVFTw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-24 10:53:20.281923+00', '2024-12-24 10:55:25.810803+00', 'D-kuQ8W40RWcVv85SR3sBw', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
 	('00000000-0000-0000-0000-000000000000', 327, 'sFjhAtwoZ2v33eB5E_ee-g', '1d56fb23-62f4-462e-8c02-764c910075ab', false, '2024-12-24 10:55:25.811545+00', '2024-12-24 10:55:25.811545+00', '2tAq227nwLyaCF7wmXVFTw', '82ed7e9b-97d4-4beb-a3df-2fcd5c3a600e'),
-	('00000000-0000-0000-0000-000000000000', 420, 'gNQYLua2yiplZJ11Q4xGNA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 14:39:22.159133+00', '2024-12-26 14:39:22.492126+00', NULL, '04b753e4-fe40-498d-a49e-cf0e7a7980c1'),
-	('00000000-0000-0000-0000-000000000000', 421, 'tZ2Fw6gu8IdP3lUSJTVqXw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 14:39:22.492589+00', '2024-12-27 07:34:20.505199+00', 'gNQYLua2yiplZJ11Q4xGNA', '04b753e4-fe40-498d-a49e-cf0e7a7980c1'),
-	('00000000-0000-0000-0000-000000000000', 427, 'wbP0Ow2fKwiTKwPL9eanMA', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-27 07:34:20.505891+00', '2024-12-27 07:36:00.62692+00', 'tZ2Fw6gu8IdP3lUSJTVqXw', '04b753e4-fe40-498d-a49e-cf0e7a7980c1');
+	('00000000-0000-0000-0000-000000000000', 484, '4DqDqcojp5gUbdf5HlIWwg', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:39:59.359733+00', '2024-12-30 09:40:27.100464+00', 'kkMj-DhzL98QfQElBVC7yg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 485, 'phYEK7068N5kdUmfuXo-uQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:40:27.100846+00', '2024-12-30 09:40:50.20106+00', '4DqDqcojp5gUbdf5HlIWwg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 486, 'XG_5xWCqB9HrH83Zcz8G1Q', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:40:50.201349+00', '2024-12-30 09:49:31.891134+00', 'phYEK7068N5kdUmfuXo-uQ', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 490, 'jshtgWYjRVIALQeli6bQow', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 10:38:16.339635+00', '2024-12-30 10:38:20.804153+00', 'YWfvenDBurtQf9T4PQ1eyw', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 491, 'mtMx8tTHE8EVQ3L6Rwiixw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 10:38:20.804483+00', '2024-12-30 12:14:56.94874+00', 'jshtgWYjRVIALQeli6bQow', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 426, '2Q-EiU_OrAU1BDLLab1Kjw', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-26 16:05:04.370406+00', '2024-12-30 12:37:09.162434+00', 'TmAX_NRU9_WFjw_lWDaHEQ', '72e864a4-fd41-4288-90db-9949bb1b3395'),
+	('00000000-0000-0000-0000-000000000000', 502, 'AGLpP_EneHe18ou2qIJSoQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 14:18:54.819597+00', '2024-12-30 17:48:31.214294+00', '8EQC7gX2-DE6x-VDwqUOvg', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 508, 'esTsOhXMImFYYll-eU4L6g', 'dc91436a-cdf2-4bd2-8208-8b3443972808', true, '2024-12-31 13:00:31.525826+00', '2024-12-31 13:00:31.827054+00', NULL, '4e5e28f2-3334-4f00-85f0-a68a0dbf792f'),
+	('00000000-0000-0000-0000-000000000000', 509, '5C4e1r-80Iv5dDRJ7K7MMg', 'dc91436a-cdf2-4bd2-8208-8b3443972808', false, '2024-12-31 13:00:31.827381+00', '2024-12-31 13:00:31.827381+00', 'esTsOhXMImFYYll-eU4L6g', '4e5e28f2-3334-4f00-85f0-a68a0dbf792f'),
+	('00000000-0000-0000-0000-000000000000', 487, 'X4HT1NCqvSZZkVMqxhYRng', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 09:49:31.891744+00', '2024-12-30 09:57:00.305115+00', 'XG_5xWCqB9HrH83Zcz8G1Q', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 454, '6kLqY0uQsQF00qkpSDqArw', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', true, '2024-12-29 13:12:15.842772+00', '2024-12-30 12:29:36.847704+00', 't1bYoIcI4PTXWmuI7c7HuA', 'd9c93010-18b2-440d-a0d8-b4102783fb7f'),
+	('00000000-0000-0000-0000-000000000000', 496, 'KIH5vGFqjFfionCamHAHdQ', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-30 12:27:50.093618+00', '2024-12-30 12:30:48.527376+00', '6scbpOmF1haru5UUXPbF6A', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
+	('00000000-0000-0000-0000-000000000000', 503, 'tM_quw4JrFNX5f6BjHvgQQ', '1d56fb23-62f4-462e-8c02-764c910075ab', true, '2024-12-30 17:48:31.214919+00', '2024-12-31 09:48:33.658399+00', 'AGLpP_EneHe18ou2qIJSoQ', '7e0666fb-b760-4170-a133-bdd608d9a7c8'),
+	('00000000-0000-0000-0000-000000000000', 510, 'jPdem7RSdzxifRhbqI0R4Q', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', false, '2024-12-31 21:30:10.950797+00', '2024-12-31 21:30:10.950797+00', 'pehW_hJ-PPf2u9xph0zeoQ', 'cc9bb73c-060c-4d88-9359-b914979d66f2'),
+	('00000000-0000-0000-0000-000000000000', 443, 'AZHpfhrO5IAv1XWnyHdXlw', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-27 19:18:16.81562+00', '2024-12-27 19:18:17.259002+00', NULL, '6d97fd50-9213-4b9b-9ad1-0cd6ad7fa0a4'),
+	('00000000-0000-0000-0000-000000000000', 444, 'lp1jMLl436G9bF49XMXUJg', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', false, '2024-12-27 19:18:17.259948+00', '2024-12-27 19:18:17.259948+00', 'AZHpfhrO5IAv1XWnyHdXlw', '6d97fd50-9213-4b9b-9ad1-0cd6ad7fa0a4'),
+	('00000000-0000-0000-0000-000000000000', 442, 't1bYoIcI4PTXWmuI7c7HuA', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', true, '2024-12-27 19:17:38.879802+00', '2024-12-29 13:12:15.841895+00', 'HbVZAjun5AKqkNPN69aQsg', 'd9c93010-18b2-440d-a0d8-b4102783fb7f'),
+	('00000000-0000-0000-0000-000000000000', 462, 'cielOSAltz2u5vHC4KBntA', '65a96fd7-450c-4a2a-a6d1-a559ebacd726', true, '2024-12-29 15:22:09.915539+00', '2024-12-29 16:31:44.661779+00', 'aOuJfs37iX77UDCY28LHNQ', 'cc9bb73c-060c-4d88-9359-b914979d66f2');
 
 
 --
@@ -1603,11 +1852,16 @@ INSERT INTO "public"."locals" ("id", "created_at", "name", "business", "logo_url
 --
 
 INSERT INTO "public"."customers" ("id", "created_at", "local", "account", "points", "updated_at", "phone", "points_multiplier") VALUES
-	(11, '2024-12-24 13:31:55.274592+00', 234, '1d56fb23-62f4-462e-8c02-764c910075ab', 1397, '2024-12-24 13:31:55.274592+00', '48666978350', 2.15),
 	(12, '2024-12-25 18:23:23.460359+00', 247, '1d56fb23-62f4-462e-8c02-764c910075ab', 0, '2024-12-25 18:23:23.460359+00', '48666978350', 2.15),
 	(13, '2024-12-26 14:38:28.19075+00', 235, '1d56fb23-62f4-462e-8c02-764c910075ab', 16466, '2024-12-26 14:38:28.19075+00', '48666978350', 2.15),
 	(14, '2024-12-26 15:12:59.249678+00', 232, '1d56fb23-62f4-462e-8c02-764c910075ab', 0, '2024-12-26 15:12:59.249678+00', '48666978350', 2.15),
-	(15, '2024-12-27 07:42:13.185868+00', 248, '1d56fb23-62f4-462e-8c02-764c910075ab', 124, '2024-12-27 07:42:13.185868+00', '48666978350', 2.15);
+	(15, '2024-12-27 07:42:13.185868+00', 248, '1d56fb23-62f4-462e-8c02-764c910075ab', 124, '2024-12-27 07:42:13.185868+00', '48666978350', 2.15),
+	(16, '2024-12-27 18:12:24.551479+00', 252, '65a96fd7-450c-4a2a-a6d1-a559ebacd726', 23, '2024-12-27 18:12:24.551479+00', '48570820237', 2.15),
+	(17, '2024-12-27 19:20:04.532842+00', 255, '65a96fd7-450c-4a2a-a6d1-a559ebacd726', 42200, '2024-12-27 19:20:04.532842+00', '48570820237', 2.15),
+	(11, '2024-12-24 13:31:55.274592+00', 234, '1d56fb23-62f4-462e-8c02-764c910075ab', 4044, '2024-12-24 13:31:55.274592+00', '48666978350', 2.15),
+	(19, '2024-12-27 19:23:20.402904+00', 256, '65a96fd7-450c-4a2a-a6d1-a559ebacd726', 17447, '2024-12-27 19:23:20.402904+00', '48570820237', 2.15),
+	(18, '2024-12-27 19:22:49.204976+00', 258, '65a96fd7-450c-4a2a-a6d1-a559ebacd726', 20607, '2024-12-27 19:22:49.204976+00', '48570820237', 2.15),
+	(20, '2024-12-29 13:30:15.899981+00', 258, '1d56fb23-62f4-462e-8c02-764c910075ab', 0, '2024-12-29 13:30:15.899981+00', '48666978350', 2.15);
 
 
 --
@@ -1683,11 +1937,16 @@ INSERT INTO "public"."local_cards" ("id", "created_at", "name", "short_descripti
 --
 
 INSERT INTO "public"."customer_cards" ("id", "created_at", "updated_at", "card", "customer", "collected") VALUES
+	(15, '2024-12-29 13:30:22.087841+00', '2024-12-29 13:30:22.087841+00', 358, 20, 15),
 	(6, '2024-12-25 18:23:25.819793+00', '2024-12-25 18:23:25.819793+00', 333, 12, 16),
 	(9, '2024-12-26 14:38:41.532461+00', '2024-12-26 14:38:41.532461+00', 308, 13, 6),
 	(8, '2024-12-26 14:38:41.473889+00', '2024-12-26 14:38:41.473889+00', 306, 13, 11),
 	(7, '2024-12-26 14:38:41.416495+00', '2024-12-26 14:38:41.416495+00', 307, 13, 11),
-	(10, '2024-12-26 15:13:10.292085+00', '2024-12-26 15:13:10.292085+00', 301, 14, 3);
+	(10, '2024-12-26 15:13:10.292085+00', '2024-12-26 15:13:10.292085+00', 301, 14, 3),
+	(11, '2024-12-27 18:12:29.030373+00', '2024-12-27 18:12:29.030373+00', 346, 16, 13),
+	(12, '2024-12-27 19:20:09.876769+00', '2024-12-27 19:20:09.876769+00', 352, 17, 3),
+	(14, '2024-12-27 19:23:23.179845+00', '2024-12-27 19:23:23.179845+00', 354, 19, 14),
+	(13, '2024-12-27 19:22:55.17231+00', '2024-12-27 19:22:55.17231+00', 358, 18, 2);
 
 
 --
@@ -1855,21 +2114,85 @@ INSERT INTO "public"."geo" ("id", "lat", "long", "local_address") VALUES
 
 
 --
+-- Data for Name: local_posts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO "public"."local_posts" ("id", "created_at", "local", "creator", "title", "content", "image_url", "channels") VALUES
+	(6, '2024-12-29 11:18:40.346223+00', 236, NULL, '🎉 Wielkie Otwarcie!', 'Zapraszamy na wielkie otwarcie! 🎊
+
+🗓️ Ten Weekend
+⏰ 10:00 - 20:00
+   
+Specjalne oferty:
+🎁 Pierwszych 50 klientów otrzyma darmową kawę
+🌟 20% zniżki na całe menu
+🎵 Muzyka na żywo wieczorem
+   
+Nie możemy się doczekać, aby Was zobaczyć! ✨', 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8', '{email,push,feed}'),
+	(7, '2024-12-29 11:18:40.346223+00', 237, NULL, '🍹 Happy Hour!', 'Czas na Happy Hour! 🌅
+   
+⏰ Od poniedziałku do piątku 16:00-19:00
+   
+W ofercie:
+🍸 Koktajle w połowie ceny
+🍺 Piwo lane 2 w cenie 1
+🍕 30% zniżki na przekąski
+   
+Idealne na relaks po pracy! 😎', NULL, '{feed}'),
+	(15, '2024-12-30 12:31:39.744434+00', 257, 'd51170b3-31b3-4cb1-827e-8863bd3b5666', 'google', 'test 21111🎄👍🎄😈👇👇😇👇👇', 'https://cfrwepxesctjdwtkmfas.supabase.co/storage/v1/object/public/local_posts/local_257/98222336-a48f-4662-9787-d540a68c14fd.png', '{email,push,feed}'),
+	(8, '2024-12-29 11:18:40.346223+00', 238, NULL, '🆕 Nowe Pozycje w Menu!', 'Dodaliśmy nowe, pyszne dania! 👨‍🍳
+   
+Wypróbuj nasze nowości:
+🥗 Miska Buddha z Quinoa
+🍜 Pikantny Ramen Specjalny
+🍰 Sernik z Matchą
+   
+Wszystko przygotowane ze świeżych, lokalnych składników! 🌱', 'https://images.unsplash.com/photo-1547592180-85f173990554', '{email,feed}'),
+	(9, '2024-12-29 11:18:40.346223+00', 239, NULL, '🧩 Wieczór z Quizem!', 'Przygotujcie się na wieczór pełen zagadek! 🤓
+   
+📍 Każdy czwartek
+⏰ Start o 19:00
+🏆 Atrakcyjne nagrody do wygrania!
+   
+Zabierz przyjaciół i sprawdź swoją wiedzę! 🎯
+   
+🎟️ Wstęp: 20 zł od osoby
+👥 Drużyny do 6 osób', NULL, '{feed,push}'),
+	(10, '2024-12-29 11:18:40.346223+00', 240, NULL, '🎸 Koncert na Żywo w Sobotę!', 'Szykuje się niesamowity wieczór! 🌟
+   
+Wystąpi lokalny zespół "Nocne Światła"
+   
+🗓️ W tę sobotę
+⏰ 20:00 - 23:00
+🎵 Jazz & Blues
+🍷 Specjalne ceny win przez cały wieczór
+   
+Zarezerwuj stolik już teraz! 📞', 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3', '{email,push,feed}'),
+	(12, '2024-12-29 18:37:08.764742+00', 251, 'dc91436a-cdf2-4bd2-8208-8b3443972808', '🧑‍🔧Maszyna się popsuła', 'Drodzy klienci, maszyna nam pierdolneła, więc no pewnie do 2026 roku chuja na niej zrobicie ☺️', 'https://cfrwepxesctjdwtkmfas.supabase.co/storage/v1/object/public/local_posts/local_251/f9903d83-f495-460b-996d-52d4d8beedd8.png', '{email,push,feed}'),
+	(14, '2024-12-30 12:30:28.134406+00', 258, 'd51170b3-31b3-4cb1-827e-8863bd3b5666', 'ktos zgubil psa na silowni', 'czyj piesek', 'https://cfrwepxesctjdwtkmfas.supabase.co/storage/v1/object/public/local_posts/local_258/7822643a-60e6-47f2-b309-dc89fe6fc7f4.png', '{email,push,feed}'),
+	(16, '2024-12-30 12:39:59.732425+00', 245, 'dc91436a-cdf2-4bd2-8208-8b3443972808', 'Post z androida', 'testowy post z telefonu z Androidem zobaczymy czy zadziała czy się wyjebie 😅😶‍🌫️', 'https://cfrwepxesctjdwtkmfas.supabase.co/storage/v1/object/public/local_posts/local_245/b978a9f4-dd69-4f4e-b468-1ef46bd27bed.png', '{feed}');
+
+
+--
 -- Data for Name: transactions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO "public"."transactions" ("id", "created_at", "local_address", "customer", "completed_at", "status", "executor") VALUES
 	(55, '2024-12-25 19:21:16.960392+00', 506, 12, '2024-12-25 19:21:17.072157+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(82, '2024-12-29 13:20:24.264065+00', 525, 18, '2024-12-29 13:20:24.51391+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
 	(56, '2024-12-25 19:21:42.180786+00', 506, 12, '2024-12-25 19:21:42.406198+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(57, '2024-12-25 19:28:10.723669+00', 506, 12, '2024-12-25 19:28:10.845157+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(58, '2024-12-25 19:28:46.701795+00', 506, 12, '2024-12-25 19:28:46.847786+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(83, '2024-12-29 13:20:53.570946+00', 525, 18, '2024-12-29 13:20:53.753419+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
 	(59, '2024-12-25 19:35:23.099421+00', 506, 12, '2024-12-25 19:35:23.206625+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(60, '2024-12-25 19:36:06.036893+00', 506, 12, '2024-12-25 19:36:06.175381+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(61, '2024-12-26 14:38:41.300995+00', 468, 13, '2024-12-26 14:38:41.593987+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(84, '2024-12-29 13:21:19.327962+00', 525, 18, '2024-12-29 13:21:19.783804+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
 	(62, '2024-12-26 14:39:38.504135+00', 468, 13, '2024-12-26 14:39:58.426818+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(63, '2024-12-26 15:03:57.616388+00', 468, 13, '2024-12-26 15:03:57.880836+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(64, '2024-12-26 15:04:06.689827+00', 468, 13, '2024-12-26 15:04:17.131401+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(44, '2024-12-24 13:32:02.387155+00', 463, 11, '2024-12-24 13:32:02.511045+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(85, '2024-12-29 13:21:40.332291+00', 525, 18, '2024-12-29 13:22:08.180406+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
 	(45, '2024-12-25 18:23:25.766293+00', 506, 12, '2024-12-25 18:23:25.882421+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(65, '2024-12-26 15:13:10.228+00', 456, 14, '2024-12-26 15:13:10.437239+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(46, '2024-12-25 18:33:43.044694+00', 506, 12, '2024-12-25 18:33:43.171004+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
@@ -1879,9 +2202,33 @@ INSERT INTO "public"."transactions" ("id", "created_at", "local_address", "custo
 	(49, '2024-12-25 18:52:21.066492+00', 506, 12, '2024-12-25 18:52:21.232806+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(50, '2024-12-25 18:56:28.391986+00', 506, 12, '2024-12-25 18:56:28.527802+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(51, '2024-12-25 18:56:50.353978+00', 506, 12, '2024-12-25 18:56:50.464513+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(67, '2024-12-27 18:12:28.945356+00', 519, 16, '2024-12-27 18:12:29.18332+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
 	(52, '2024-12-25 19:01:27.474287+00', 506, 12, '2024-12-25 19:01:27.595297+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
 	(53, '2024-12-25 19:03:08.653634+00', 506, 12, '2024-12-25 19:03:08.80893+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
-	(54, '2024-12-25 19:20:21.178393+00', 506, 12, '2024-12-25 19:20:21.292475+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808');
+	(86, '2024-12-29 13:22:18.12394+00', 525, 18, '2024-12-29 13:22:28.684716+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(54, '2024-12-25 19:20:21.178393+00', 506, 12, '2024-12-25 19:20:21.292475+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(68, '2024-12-27 19:18:34.989331+00', 519, 16, '2024-12-27 19:18:35.203816+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(69, '2024-12-27 19:19:13.627171+00', 519, 16, '2024-12-27 19:19:13.797682+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(70, '2024-12-27 19:19:44.194019+00', 463, 11, '2024-12-27 19:19:44.293352+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(87, '2024-12-29 13:27:14.698856+00', 525, 18, '2024-12-29 13:27:41.938988+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(71, '2024-12-27 19:19:46.526361+00', 519, 16, '2024-12-27 19:19:46.663102+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(72, '2024-12-27 19:20:09.805779+00', 522, 17, '2024-12-27 19:20:10.018573+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(73, '2024-12-27 19:20:37.726274+00', 522, 17, '2024-12-27 19:20:42.838108+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(88, '2024-12-29 13:27:53.544594+00', 525, 18, '2024-12-29 13:27:58.100413+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(74, '2024-12-27 19:21:27.411276+00', 522, 17, '2024-12-27 19:21:38.713431+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(75, '2024-12-27 19:22:23.496357+00', 463, 11, '2024-12-27 19:22:23.629257+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(76, '2024-12-27 19:22:55.094652+00', 525, 18, '2024-12-27 19:22:55.338532+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(89, '2024-12-29 13:29:07.245441+00', 525, 18, '2024-12-29 13:29:07.593924+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(77, '2024-12-27 19:23:11.346666+00', 463, 11, '2024-12-27 19:23:11.480184+00', 'completed', 'dc91436a-cdf2-4bd2-8208-8b3443972808'),
+	(78, '2024-12-27 19:23:23.06752+00', 523, 19, '2024-12-27 19:23:23.273462+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(79, '2024-12-27 19:29:22.206194+00', 523, 19, '2024-12-27 19:29:22.411652+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(90, '2024-12-29 13:29:26.780959+00', 525, 18, '2024-12-29 13:29:30.927594+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(80, '2024-12-27 19:29:40.773505+00', 523, 19, '2024-12-27 19:29:41.119919+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(81, '2024-12-27 19:29:54.973465+00', 523, 19, '2024-12-27 19:29:58.832413+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(91, '2024-12-29 13:30:21.98155+00', 525, 20, '2024-12-29 13:30:22.19214+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(92, '2024-12-29 13:30:34.976872+00', 525, 20, '2024-12-29 13:30:44.606039+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(93, '2024-12-29 13:31:04.387692+00', 525, 20, '2024-12-29 13:31:04.618441+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666'),
+	(94, '2024-12-29 13:31:19.683918+00', 525, 20, '2024-12-29 13:31:23.946671+00', 'completed', 'd51170b3-31b3-4cb1-827e-8863bd3b5666');
 
 
 --
@@ -1891,6 +2238,15 @@ INSERT INTO "public"."transactions" ("id", "created_at", "local_address", "custo
 INSERT INTO "public"."transaction_units" ("id", "created_at", "local_card", "customer_card", "value", "type", "status", "completed_at", "transaction") VALUES
 	(77, '2024-12-26 15:13:10.292085+00', 301, 10, 3, 'add_stamps', 'completed', '2024-12-26 15:13:10.437239+00', 65),
 	(78, '2024-12-27 07:42:17.008251+00', NULL, NULL, 124, 'add_points', 'completed', '2024-12-27 07:42:17.080403+00', 66),
+	(79, '2024-12-27 18:12:29.030373+00', 346, 11, 4, 'add_stamps', 'completed', '2024-12-27 18:12:29.18332+00', 67),
+	(80, '2024-12-27 18:12:29.109998+00', NULL, NULL, 23, 'add_points', 'completed', '2024-12-27 18:12:29.18332+00', 67),
+	(81, '2024-12-27 19:18:35.131134+00', 346, 11, 3, 'add_stamps', 'completed', '2024-12-27 19:18:35.203816+00', 68),
+	(82, '2024-12-27 19:19:13.7297+00', 346, 11, 2, 'add_stamps', 'completed', '2024-12-27 19:19:13.797682+00', 69),
+	(83, '2024-12-27 19:19:44.243373+00', NULL, NULL, 124, 'add_points', 'completed', '2024-12-27 19:19:44.293352+00', 70),
+	(84, '2024-12-27 19:19:46.597081+00', 346, 11, 4, 'add_stamps', 'completed', '2024-12-27 19:19:46.663102+00', 71),
+	(85, '2024-12-27 19:20:09.876769+00', 352, 12, 3, 'add_stamps', 'completed', '2024-12-27 19:20:10.018573+00', 72),
+	(86, '2024-12-27 19:20:09.949045+00', NULL, NULL, 43000, 'add_points', 'completed', '2024-12-27 19:20:10.018573+00', 72),
+	(87, '2024-12-27 19:20:37.848787+00', 351, NULL, 200, 'get_reward', 'completed', '2024-12-27 19:20:42.838108+00', 73),
 	(50, '2024-12-24 13:32:02.443626+00', NULL, NULL, 1397, 'add_points', 'completed', '2024-12-24 13:32:02.511045+00', 44),
 	(51, '2024-12-25 18:23:25.819793+00', 333, 6, 1, 'add_stamps', 'completed', '2024-12-25 18:23:25.882421+00', 45),
 	(52, '2024-12-25 18:33:43.110699+00', 333, 6, 1, 'add_stamps', 'completed', '2024-12-25 18:33:43.171004+00', 46),
@@ -1912,12 +2268,39 @@ INSERT INTO "public"."transaction_units" ("id", "created_at", "local_card", "cus
 	(68, '2024-12-26 14:38:41.416495+00', 307, 7, 12, 'add_stamps', 'completed', '2024-12-26 14:38:41.593987+00', 61),
 	(69, '2024-12-26 14:38:41.473889+00', 306, 8, 5, 'add_stamps', 'completed', '2024-12-26 14:38:41.593987+00', 61),
 	(70, '2024-12-26 14:38:41.532461+00', 308, 9, 2, 'add_stamps', 'completed', '2024-12-26 14:38:41.593987+00', 61),
+	(105, '2024-12-29 13:22:18.224503+00', 358, 13, 10, 'get_reward', 'canceled', NULL, 86),
+	(106, '2024-12-29 13:22:18.326612+00', 357, NULL, 1000, 'get_reward', 'canceled', NULL, 86),
 	(71, '2024-12-26 14:39:38.557358+00', 307, 7, 8, 'get_reward', 'completed', '2024-12-26 14:39:58.426818+00', 62),
 	(72, '2024-12-26 15:03:57.683993+00', 307, 7, 15, 'add_stamps', 'completed', '2024-12-26 15:03:57.880836+00', 63),
 	(73, '2024-12-26 15:03:57.751874+00', 306, 8, 12, 'add_stamps', 'completed', '2024-12-26 15:03:57.880836+00', 63),
 	(74, '2024-12-26 15:03:57.818291+00', 308, 9, 4, 'add_stamps', 'completed', '2024-12-26 15:03:57.880836+00', 63),
+	(88, '2024-12-27 19:21:27.589335+00', 351, NULL, 600, 'get_reward', 'completed', '2024-12-27 19:21:38.713431+00', 74),
+	(89, '2024-12-27 19:22:23.555532+00', NULL, NULL, 1259, 'add_points', 'completed', '2024-12-27 19:22:23.629257+00', 75),
 	(75, '2024-12-26 15:04:06.745849+00', 306, 8, 6, 'get_reward', 'completed', '2024-12-26 15:04:15.32538+00', 64),
-	(76, '2024-12-26 15:04:06.798199+00', 307, 7, 8, 'get_reward', 'completed', '2024-12-26 15:04:17.131401+00', 64);
+	(76, '2024-12-26 15:04:06.798199+00', 307, 7, 8, 'get_reward', 'completed', '2024-12-26 15:04:17.131401+00', 64),
+	(90, '2024-12-27 19:22:55.17231+00', 358, 13, 1, 'add_stamps', 'completed', '2024-12-27 19:22:55.338532+00', 76),
+	(91, '2024-12-27 19:22:55.264066+00', NULL, NULL, 107, 'add_points', 'completed', '2024-12-27 19:22:55.338532+00', 76),
+	(92, '2024-12-27 19:23:11.40839+00', NULL, NULL, 1264, 'add_points', 'completed', '2024-12-27 19:23:11.480184+00', 77),
+	(93, '2024-12-27 19:23:23.179845+00', 354, 14, 1, 'add_stamps', 'completed', '2024-12-27 19:23:23.273462+00', 78),
+	(94, '2024-12-27 19:29:22.305626+00', 354, 14, 2, 'add_stamps', 'completed', '2024-12-27 19:29:22.411652+00', 79),
+	(95, '2024-12-27 19:29:40.940427+00', 354, 14, 2, 'add_stamps', 'completed', '2024-12-27 19:29:41.119919+00', 80),
+	(96, '2024-12-27 19:29:41.022867+00', NULL, NULL, 1247, 'add_points', 'completed', '2024-12-27 19:29:41.119919+00', 80),
+	(97, '2024-12-27 19:29:55.05952+00', 354, 14, 9, 'add_stamps', 'completed', '2024-12-27 19:29:55.331959+00', 81),
+	(99, '2024-12-27 19:29:55.244901+00', NULL, NULL, 17200, 'add_points', 'completed', '2024-12-27 19:29:55.331959+00', 81),
+	(98, '2024-12-27 19:29:55.154987+00', 353, NULL, 1000, 'get_reward', 'completed', '2024-12-27 19:29:58.832413+00', 81),
+	(100, '2024-12-29 13:20:24.340865+00', 358, 13, 1, 'add_stamps', 'completed', '2024-12-29 13:20:24.51391+00', 82),
+	(101, '2024-12-29 13:20:53.663288+00', 358, 13, 1, 'add_stamps', 'completed', '2024-12-29 13:20:53.753419+00', 83),
+	(102, '2024-12-29 13:21:19.467621+00', 358, 13, 14, 'add_stamps', 'completed', '2024-12-29 13:21:19.783804+00', 84),
+	(103, '2024-12-29 13:21:19.627373+00', NULL, NULL, 21500, 'add_points', 'completed', '2024-12-29 13:21:19.783804+00', 84),
+	(104, '2024-12-29 13:21:40.422832+00', 357, NULL, 1000, 'get_reward', 'canceled', NULL, 85),
+	(107, '2024-12-29 13:27:14.924108+00', 357, NULL, 1000, 'get_reward', 'completed', '2024-12-29 13:27:41.938988+00', 87),
+	(108, '2024-12-29 13:27:53.640646+00', 358, 13, 10, 'get_reward', 'completed', '2024-12-29 13:27:58.100413+00', 88),
+	(109, '2024-12-29 13:29:07.483824+00', 358, 13, 5, 'add_stamps', 'completed', '2024-12-29 13:29:07.593924+00', 89),
+	(110, '2024-12-29 13:29:26.883437+00', 358, 13, 10, 'get_reward', 'completed', '2024-12-29 13:29:30.927594+00', 90),
+	(111, '2024-12-29 13:30:22.087841+00', 358, 15, 14, 'add_stamps', 'completed', '2024-12-29 13:30:22.19214+00', 91),
+	(112, '2024-12-29 13:30:35.092844+00', 358, 15, 10, 'get_reward', 'completed', '2024-12-29 13:30:44.606039+00', 92),
+	(113, '2024-12-29 13:31:04.534102+00', 358, 15, 11, 'add_stamps', 'completed', '2024-12-29 13:31:04.618441+00', 93),
+	(114, '2024-12-29 13:31:19.784659+00', 358, 15, 10, 'get_reward', 'canceled', NULL, 94);
 
 
 --
@@ -1926,7 +2309,8 @@ INSERT INTO "public"."transaction_units" ("id", "created_at", "local_card", "cus
 
 INSERT INTO "storage"."buckets" ("id", "name", "owner", "created_at", "updated_at", "public", "avif_autodetection", "file_size_limit", "allowed_mime_types", "owner_id") VALUES
 	('locals', 'locals', NULL, '2024-07-16 11:20:20.085278+00', '2024-07-16 11:20:20.085278+00', true, false, NULL, NULL, NULL),
-	('markers', 'markers', NULL, '2024-12-24 05:54:09.985435+00', '2024-12-24 05:54:09.985435+00', true, false, NULL, NULL, NULL);
+	('markers', 'markers', NULL, '2024-12-24 05:54:09.985435+00', '2024-12-24 05:54:09.985435+00', true, false, NULL, NULL, NULL),
+	('local_posts', 'local_posts', NULL, '2024-12-28 20:21:53.281567+00', '2024-12-28 20:21:53.281567+00', true, false, 5242880, NULL, NULL);
 
 
 --
@@ -1997,6 +2381,7 @@ INSERT INTO "storage"."objects" ("id", "bucket_id", "name", "owner", "created_at
 	('98c17104-b0e6-4bbc-a126-45b917b94c64', 'markers', '226.png', NULL, '2024-12-24 12:55:26.637099+00', '2024-12-24 12:55:26.637099+00', '2024-12-24 12:55:26.637099+00', '{"eTag": "\"bdc547b89532fe8bc5d2f3a008493af7\"", "size": 312766, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:55:27.000Z", "contentLength": 312766, "httpStatusCode": 200}', 'a9cb5219-aa96-45fc-898d-645ca8be8fa7', NULL, '{}'),
 	('926e5566-f1b9-43b8-8fe2-f2d3c38350b9', 'markers', '3.png', NULL, '2024-12-26 19:18:34.351755+00', '2024-12-26 19:20:38.644042+00', '2024-12-26 19:18:34.351755+00', '{"eTag": "\"185ba8418c949e989f8194361d6283e4\"", "size": 258099, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-26T19:20:39.000Z", "contentLength": 258099, "httpStatusCode": 200}', 'c18e9647-29e2-4769-b894-f7f8a40a8300', NULL, '{}'),
 	('50347a69-4427-4ff5-a16d-f8571feae316', 'markers', '227.png', NULL, '2024-12-24 12:55:29.349026+00', '2024-12-24 12:55:29.349026+00', '2024-12-24 12:55:29.349026+00', '{"eTag": "\"00588f267de9f509af9c5e5ffdee9736\"", "size": 7912, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:55:30.000Z", "contentLength": 7912, "httpStatusCode": 200}', 'f8a76a25-f9f6-4782-8341-cfcb880a5cea', NULL, '{}'),
+	('124499ec-1e50-4d86-88ac-43cdb6cde15a', 'local_posts', 'local_258/7822643a-60e6-47f2-b309-dc89fe6fc7f4.png', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '2024-12-30 12:30:27.942429+00', '2024-12-30 12:30:27.942429+00', '2024-12-30 12:30:27.942429+00', '{"eTag": "\"84146d22b055934ec63e717513d6afe2\"", "size": 2260940, "mimetype": "image/jpeg", "cacheControl": "max-age=3600", "lastModified": "2024-12-30T12:30:28.000Z", "contentLength": 2260940, "httpStatusCode": 200}', 'da883b03-bec1-46d4-9d36-efed17010944', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '{}'),
 	('25d7462c-62b2-4e7e-8528-e1a95f376741', 'markers', '228.png', NULL, '2024-12-24 12:55:30.5503+00', '2024-12-24 12:55:30.5503+00', '2024-12-24 12:55:30.5503+00', '{"eTag": "\"a8b81322b1ef212a992d24456e4ffac0\"", "size": 178207, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:55:31.000Z", "contentLength": 178207, "httpStatusCode": 200}', 'b208d57e-0045-41bb-a20b-357fd788b035', NULL, '{}'),
 	('feb599fe-fe78-494f-b338-eaf5dd68a60a', 'markers', '229.png', NULL, '2024-12-24 12:55:31.372461+00', '2024-12-24 12:55:31.372461+00', '2024-12-24 12:55:31.372461+00', '{"eTag": "\"6eb7519e3bf31dc50ba5baf5080cad09\"", "size": 145516, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:55:32.000Z", "contentLength": 145516, "httpStatusCode": 200}', 'cfceee17-8218-4cc3-81de-a47fe2012a53', NULL, '{}'),
 	('76673958-956b-4466-a075-f40250d83987', 'markers', '230.png', NULL, '2024-12-24 12:55:32.117378+00', '2024-12-24 12:55:32.117378+00', '2024-12-24 12:55:32.117378+00', '{"eTag": "\"fecc66e5b59c5b6f067771f2cf664697\"", "size": 248491, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:55:32.000Z", "contentLength": 248491, "httpStatusCode": 200}', '6815a09c-91ec-4c00-9611-f7be16227525', NULL, '{}'),
@@ -2006,10 +2391,12 @@ INSERT INTO "storage"."objects" ("id", "bucket_id", "name", "owner", "created_at
 	('a2dc2090-3412-42a5-b70a-fefcce16bc77', 'markers', '234.png', NULL, '2024-12-24 12:57:06.579712+00', '2024-12-24 12:57:06.579712+00', '2024-12-24 12:57:06.579712+00', '{"eTag": "\"e844d34607c1a3fa917b01c3789862d7\"", "size": 262118, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:07.000Z", "contentLength": 262118, "httpStatusCode": 200}', 'bcf1dd0a-c2e9-4a10-a738-a7e2812f54c7', NULL, '{}'),
 	('5bf0339d-0801-47fe-93e6-f3288162c097', 'markers', '235.png', NULL, '2024-12-24 12:57:07.468126+00', '2024-12-24 12:57:07.468126+00', '2024-12-24 12:57:07.468126+00', '{"eTag": "\"84f78d3e628bfe3d93bec9d5ab9ce029\"", "size": 223282, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:08.000Z", "contentLength": 223282, "httpStatusCode": 200}', '62337069-de71-432a-a9cb-cfadc155eec4', NULL, '{}'),
 	('5d2c528c-a7d8-4db5-aacf-10076401ec80', 'markers', '236.png', NULL, '2024-12-24 12:57:08.173557+00', '2024-12-24 12:57:08.173557+00', '2024-12-24 12:57:08.173557+00', '{"eTag": "\"ac95ae0acb0d3c1cff60d27be64bf821\"", "size": 254442, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:09.000Z", "contentLength": 254442, "httpStatusCode": 200}', '40f80988-0d68-4813-8327-d80004ab3513', NULL, '{}'),
+	('fa414fcf-f43c-4f7f-bc16-4610e98221a0', 'local_posts', 'local_257/98222336-a48f-4662-9787-d540a68c14fd.png', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '2024-12-30 12:31:39.592716+00', '2024-12-30 12:31:39.592716+00', '2024-12-30 12:31:39.592716+00', '{"eTag": "\"8c7cd1871e94b21cbf5d8561082df77c\"", "size": 1794399, "mimetype": "image/jpeg", "cacheControl": "max-age=3600", "lastModified": "2024-12-30T12:31:40.000Z", "contentLength": 1794399, "httpStatusCode": 200}', '4614aba0-b3f0-4c1e-b0fe-1fe9229d9066', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '{}'),
 	('782cfa47-b5b7-4e50-a830-61bdecb0b0ff', 'markers', '237.png', NULL, '2024-12-24 12:57:08.89648+00', '2024-12-24 12:57:08.89648+00', '2024-12-24 12:57:08.89648+00', '{"eTag": "\"608eaea0c9c42ab097d5f301e523092e\"", "size": 104164, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:09.000Z", "contentLength": 104164, "httpStatusCode": 200}', '3765ff1c-ed90-4dce-aad8-2e242dba526b', NULL, '{}'),
 	('4d4a72ca-107a-4211-a5ff-57907c0a3896', 'markers', '247.png', NULL, '2024-12-24 12:57:18.525445+00', '2024-12-26 09:38:14.019459+00', '2024-12-24 12:57:18.525445+00', '{"eTag": "\"9d25cbea01c28a09c33dcc6d01e81423\"", "size": 190427, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-26T09:38:14.000Z", "contentLength": 190427, "httpStatusCode": 200}', '5e1b4c06-c0aa-4cc4-b771-df59334ce43e', NULL, '{}'),
 	('4042c78e-3607-4487-a4d4-acc11fc3521c', 'markers', '238.png', NULL, '2024-12-24 12:57:09.754548+00', '2024-12-24 12:57:09.754548+00', '2024-12-24 12:57:09.754548+00', '{"eTag": "\"12b42019a7e0cbd183172df51444d777\"", "size": 139454, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:10.000Z", "contentLength": 139454, "httpStatusCode": 200}', '44263632-2b79-49b1-ad73-f8f332951823', NULL, '{}'),
 	('5a1c6fc9-0fd2-4c66-83c8-6be21b7f3287', 'markers', '239.png', NULL, '2024-12-24 12:57:10.889076+00', '2024-12-24 12:57:10.889076+00', '2024-12-24 12:57:10.889076+00', '{"eTag": "\"a6d37dcf81da1a1d718a661d5ecea649\"", "size": 157483, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:11.000Z", "contentLength": 157483, "httpStatusCode": 200}', '9e31a26e-8353-4ee6-b26f-ee5e72ce2c3e', NULL, '{}'),
+	('88d1ddcf-4c90-47b7-8bc6-6b33411585aa', 'local_posts', 'local_254/9eeca2c1-777a-482b-856a-2b42a1eb5972.png', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '2024-12-29 13:13:35.031491+00', '2024-12-29 13:13:35.031491+00', '2024-12-29 13:13:35.031491+00', '{"eTag": "\"ff42af81592129b432d5d8086d4fdd3f\"", "size": 158345, "mimetype": "image/jpeg", "cacheControl": "max-age=3600", "lastModified": "2024-12-29T13:13:35.000Z", "contentLength": 158345, "httpStatusCode": 200}', 'f2211818-784d-4cbb-98a1-6307bf49d0f7', 'd51170b3-31b3-4cb1-827e-8863bd3b5666', '{}'),
 	('cb2250d4-935b-4c12-bad9-c5582391d50f', 'markers', '240.png', NULL, '2024-12-24 12:57:11.595741+00', '2024-12-24 12:57:11.595741+00', '2024-12-24 12:57:11.595741+00', '{"eTag": "\"9b61493040d36e0b9a41f3dacc9b6a79\"", "size": 228293, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:12.000Z", "contentLength": 228293, "httpStatusCode": 200}', 'bb8be264-f9c9-4d71-aa3b-4a30cee5bfeb', NULL, '{}'),
 	('b1466fe1-5713-4747-aeeb-eaedc43a3b0c', 'markers', '241.png', NULL, '2024-12-24 12:57:12.682385+00', '2024-12-24 12:57:12.682385+00', '2024-12-24 12:57:12.682385+00', '{"eTag": "\"ef390b4852b795d362b23cae3fb8e154\"", "size": 155214, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:13.000Z", "contentLength": 155214, "httpStatusCode": 200}', '034c354c-3515-4038-bd39-584e51b65b9e', NULL, '{}'),
 	('523f20d0-d3f6-4ad9-b9d1-a8e4c49c32e6', 'markers', '242.png', NULL, '2024-12-24 12:57:13.734888+00', '2024-12-24 12:57:13.734888+00', '2024-12-24 12:57:13.734888+00', '{"eTag": "\"0440e07f6bc37bff5aa3f521ed1303b7\"", "size": 221404, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:14.000Z", "contentLength": 221404, "httpStatusCode": 200}', '8e5821f1-2795-4467-85bd-26d8ad4b4129', NULL, '{}'),
@@ -2020,7 +2407,9 @@ INSERT INTO "storage"."objects" ("id", "bucket_id", "name", "owner", "created_at
 	('59ec5474-1081-442d-b838-890b9e77fe05', 'markers', '248.png', NULL, '2024-12-24 12:57:19.648995+00', '2024-12-24 12:57:19.648995+00', '2024-12-24 12:57:19.648995+00', '{"eTag": "\"a8b81322b1ef212a992d24456e4ffac0\"", "size": 178207, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:20.000Z", "contentLength": 178207, "httpStatusCode": 200}', '0987d3fc-1f2d-4b63-ae5d-54d7e3435694', NULL, '{}'),
 	('4172d911-face-47b6-903c-f4fd2baac7b8', 'markers', '249.png', NULL, '2024-12-24 12:57:20.439623+00', '2024-12-24 12:57:20.439623+00', '2024-12-24 12:57:20.439623+00', '{"eTag": "\"6eb7519e3bf31dc50ba5baf5080cad09\"", "size": 145516, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:21.000Z", "contentLength": 145516, "httpStatusCode": 200}', '0bb5e155-3f5f-4b7c-a648-5b2ccb2caddf', NULL, '{}'),
 	('25d8f1d5-dc33-46a2-8f6d-260575639ac8', 'markers', '250.png', NULL, '2024-12-24 12:57:21.365999+00', '2024-12-24 12:57:21.365999+00', '2024-12-24 12:57:21.365999+00', '{"eTag": "\"fecc66e5b59c5b6f067771f2cf664697\"", "size": 248491, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:22.000Z", "contentLength": 248491, "httpStatusCode": 200}', 'fa178fff-88f3-4bdf-977d-6d889dc18fad', NULL, '{}'),
-	('10dbb148-ad38-4ad8-9ba5-88ec8921af31', 'markers', '251.png', NULL, '2024-12-24 12:57:22.175568+00', '2024-12-24 12:57:22.175568+00', '2024-12-24 12:57:22.175568+00', '{"eTag": "\"86f774ab989bd2e9634e4e994e904305\"", "size": 175112, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:23.000Z", "contentLength": 175112, "httpStatusCode": 200}', 'db823fa6-886a-4783-be69-c3228e4abf28', NULL, '{}');
+	('10dbb148-ad38-4ad8-9ba5-88ec8921af31', 'markers', '251.png', NULL, '2024-12-24 12:57:22.175568+00', '2024-12-24 12:57:22.175568+00', '2024-12-24 12:57:22.175568+00', '{"eTag": "\"86f774ab989bd2e9634e4e994e904305\"", "size": 175112, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-24T12:57:23.000Z", "contentLength": 175112, "httpStatusCode": 200}', 'db823fa6-886a-4783-be69-c3228e4abf28', NULL, '{}'),
+	('279f8032-da0a-4daa-a8fd-100e99c2a45a', 'local_posts', 'local_251/f9903d83-f495-460b-996d-52d4d8beedd8.png', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-29 18:37:08.539177+00', '2024-12-29 18:37:08.539177+00', '2024-12-29 18:37:08.539177+00', '{"eTag": "\"c07d1e25cf76c900a960f7b7b257a972\"", "size": 2710161, "mimetype": "image/jpeg", "cacheControl": "max-age=3600", "lastModified": "2024-12-29T18:37:09.000Z", "contentLength": 2710161, "httpStatusCode": 200}', 'fc4af93f-a273-407b-bfae-38e777e06b2a', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '{}'),
+	('af2ed2e0-74a4-4636-b219-f5d6752b2faf', 'local_posts', 'local_245/b978a9f4-dd69-4f4e-b468-1ef46bd27bed.png', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '2024-12-30 12:39:59.48754+00', '2024-12-30 12:39:59.48754+00', '2024-12-30 12:39:59.48754+00', '{"eTag": "\"066c87e30e7674d1c1e7774da549ae43\"", "size": 105729, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2024-12-30T12:40:00.000Z", "contentLength": 105729, "httpStatusCode": 200}', 'ffdd4349-0dd1-4348-9658-7aed5dabdbc3', 'dc91436a-cdf2-4bd2-8208-8b3443972808', '{}');
 
 
 --
@@ -2437,7 +2826,117 @@ INSERT INTO "supabase_functions"."hooks" ("id", "hook_table_id", "hook_name", "c
 	(395, 2330897, 'reward_confirmation_request_notification', '2024-12-26 15:13:10.437239+00', 399),
 	(396, 2330903, 'transaction_completed_notification', '2024-12-27 07:42:17.080403+00', 400),
 	(397, 2330903, 'transaction_completed_notification', '2024-12-27 07:42:17.080403+00', 401),
-	(398, 2330897, 'reward_confirmation_request_notification', '2024-12-27 07:42:17.080403+00', 402);
+	(398, 2330897, 'reward_confirmation_request_notification', '2024-12-27 07:42:17.080403+00', 402),
+	(399, 2330903, 'transaction_completed_notification', '2024-12-27 18:12:29.18332+00', 403),
+	(400, 2330903, 'transaction_completed_notification', '2024-12-27 18:12:29.18332+00', 404),
+	(401, 2330897, 'reward_confirmation_request_notification', '2024-12-27 18:12:29.18332+00', 405),
+	(402, 2330897, 'reward_confirmation_request_notification', '2024-12-27 18:12:29.18332+00', 406),
+	(403, 2330903, 'transaction_completed_notification', '2024-12-27 19:18:35.203816+00', 407),
+	(404, 2330903, 'transaction_completed_notification', '2024-12-27 19:18:35.203816+00', 408),
+	(405, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:18:35.203816+00', 409),
+	(406, 2330903, 'transaction_completed_notification', '2024-12-27 19:19:13.797682+00', 410),
+	(407, 2330903, 'transaction_completed_notification', '2024-12-27 19:19:13.797682+00', 411),
+	(408, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:19:13.797682+00', 412),
+	(409, 2330903, 'transaction_completed_notification', '2024-12-27 19:19:44.293352+00', 413),
+	(410, 2330903, 'transaction_completed_notification', '2024-12-27 19:19:44.293352+00', 414),
+	(411, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:19:44.293352+00', 415),
+	(412, 2330903, 'transaction_completed_notification', '2024-12-27 19:19:46.663102+00', 416),
+	(413, 2330903, 'transaction_completed_notification', '2024-12-27 19:19:46.663102+00', 417),
+	(414, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:19:46.663102+00', 418),
+	(415, 2330903, 'transaction_completed_notification', '2024-12-27 19:20:10.018573+00', 419),
+	(416, 2330903, 'transaction_completed_notification', '2024-12-27 19:20:10.018573+00', 420),
+	(417, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:20:10.018573+00', 421),
+	(418, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:20:10.018573+00', 422),
+	(419, 2330903, 'transaction_completed_notification', '2024-12-27 19:20:37.915887+00', 423),
+	(420, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:20:37.915887+00', 424),
+	(421, 2330903, 'transaction_completed_notification', '2024-12-27 19:20:42.838108+00', 425),
+	(422, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:20:42.838108+00', 426),
+	(423, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:20:42.838108+00', 427),
+	(424, 2330903, 'transaction_completed_notification', '2024-12-27 19:21:27.686044+00', 428),
+	(425, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:21:27.686044+00', 429),
+	(426, 2330903, 'transaction_completed_notification', '2024-12-27 19:21:38.713431+00', 430),
+	(427, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:21:38.713431+00', 431),
+	(428, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:21:38.713431+00', 432),
+	(429, 2330903, 'transaction_completed_notification', '2024-12-27 19:22:23.629257+00', 433),
+	(430, 2330903, 'transaction_completed_notification', '2024-12-27 19:22:23.629257+00', 434),
+	(431, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:22:23.629257+00', 435),
+	(432, 2330903, 'transaction_completed_notification', '2024-12-27 19:22:55.338532+00', 436),
+	(433, 2330903, 'transaction_completed_notification', '2024-12-27 19:22:55.338532+00', 437),
+	(434, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:22:55.338532+00', 438),
+	(435, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:22:55.338532+00', 439),
+	(436, 2330903, 'transaction_completed_notification', '2024-12-27 19:23:11.480184+00', 440),
+	(437, 2330903, 'transaction_completed_notification', '2024-12-27 19:23:11.480184+00', 441),
+	(438, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:23:11.480184+00', 442),
+	(439, 2330903, 'transaction_completed_notification', '2024-12-27 19:23:23.273462+00', 443),
+	(440, 2330903, 'transaction_completed_notification', '2024-12-27 19:23:23.273462+00', 444),
+	(441, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:23:23.273462+00', 445),
+	(442, 2330903, 'transaction_completed_notification', '2024-12-27 19:29:22.411652+00', 446),
+	(443, 2330903, 'transaction_completed_notification', '2024-12-27 19:29:22.411652+00', 447),
+	(444, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:22.411652+00', 448),
+	(445, 2330903, 'transaction_completed_notification', '2024-12-27 19:29:41.119919+00', 449),
+	(446, 2330903, 'transaction_completed_notification', '2024-12-27 19:29:41.119919+00', 450),
+	(447, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:41.119919+00', 451),
+	(448, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:41.119919+00', 452),
+	(449, 2330903, 'transaction_completed_notification', '2024-12-27 19:29:55.331959+00', 453),
+	(450, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:55.331959+00', 454),
+	(451, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:55.331959+00', 455),
+	(452, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:55.331959+00', 456),
+	(453, 2330903, 'transaction_completed_notification', '2024-12-27 19:29:58.832413+00', 457),
+	(454, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:58.832413+00', 458),
+	(455, 2330897, 'reward_confirmation_request_notification', '2024-12-27 19:29:58.832413+00', 459),
+	(456, 2330903, 'transaction_completed_notification', '2024-12-29 13:20:24.51391+00', 460),
+	(457, 2330903, 'transaction_completed_notification', '2024-12-29 13:20:24.51391+00', 461),
+	(458, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:20:24.51391+00', 462),
+	(459, 2330903, 'transaction_completed_notification', '2024-12-29 13:20:53.753419+00', 463),
+	(460, 2330903, 'transaction_completed_notification', '2024-12-29 13:20:53.753419+00', 464),
+	(461, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:20:53.753419+00', 465),
+	(462, 2330903, 'transaction_completed_notification', '2024-12-29 13:21:19.783804+00', 466),
+	(463, 2330903, 'transaction_completed_notification', '2024-12-29 13:21:19.783804+00', 467),
+	(464, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:21:19.783804+00', 468),
+	(465, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:21:19.783804+00', 469),
+	(468, 2330903, 'transaction_completed_notification', '2024-12-29 13:22:08.180406+00', 472),
+	(469, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:22:08.180406+00', 473),
+	(470, 2330903, 'transaction_completed_notification', '2024-12-29 13:22:18.426044+00', 474),
+	(471, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:22:18.426044+00', 475),
+	(472, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:22:18.426044+00', 476),
+	(473, 2330903, 'transaction_completed_notification', '2024-12-29 13:22:28.684716+00', 477),
+	(474, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:22:28.684716+00', 478),
+	(475, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:22:28.684716+00', 479),
+	(466, 2330903, 'transaction_completed_notification', '2024-12-29 13:21:40.588539+00', 470),
+	(467, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:21:40.588539+00', 471),
+	(476, 2330903, 'transaction_completed_notification', '2024-12-29 13:27:15.141253+00', 480),
+	(477, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:27:15.141253+00', 481),
+	(478, 2330903, 'transaction_completed_notification', '2024-12-29 13:27:41.938988+00', 482),
+	(479, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:27:41.938988+00', 483),
+	(480, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:27:41.938988+00', 484),
+	(481, 2330903, 'transaction_completed_notification', '2024-12-29 13:27:53.805459+00', 485),
+	(482, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:27:53.805459+00', 486),
+	(483, 2330903, 'transaction_completed_notification', '2024-12-29 13:27:58.100413+00', 487),
+	(484, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:27:58.100413+00', 488),
+	(485, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:27:58.100413+00', 489),
+	(486, 2330903, 'transaction_completed_notification', '2024-12-29 13:29:07.593924+00', 490),
+	(487, 2330903, 'transaction_completed_notification', '2024-12-29 13:29:07.593924+00', 491),
+	(488, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:29:07.593924+00', 492),
+	(489, 2330903, 'transaction_completed_notification', '2024-12-29 13:29:26.990241+00', 493),
+	(490, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:29:26.990241+00', 494),
+	(491, 2330903, 'transaction_completed_notification', '2024-12-29 13:29:30.927594+00', 495),
+	(492, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:29:30.927594+00', 496),
+	(493, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:29:30.927594+00', 497),
+	(494, 2330903, 'transaction_completed_notification', '2024-12-29 13:30:22.19214+00', 498),
+	(495, 2330903, 'transaction_completed_notification', '2024-12-29 13:30:22.19214+00', 499),
+	(496, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:30:22.19214+00', 500),
+	(497, 2330903, 'transaction_completed_notification', '2024-12-29 13:30:35.179674+00', 501),
+	(498, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:30:35.179674+00', 502),
+	(499, 2330903, 'transaction_completed_notification', '2024-12-29 13:30:44.606039+00', 503),
+	(500, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:30:44.606039+00', 504),
+	(501, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:30:44.606039+00', 505),
+	(502, 2330903, 'transaction_completed_notification', '2024-12-29 13:31:04.618441+00', 506),
+	(503, 2330903, 'transaction_completed_notification', '2024-12-29 13:31:04.618441+00', 507),
+	(504, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:31:04.618441+00', 508),
+	(505, 2330903, 'transaction_completed_notification', '2024-12-29 13:31:19.90043+00', 509),
+	(506, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:31:19.90043+00', 510),
+	(507, 2330903, 'transaction_completed_notification', '2024-12-29 13:31:23.946671+00', 511),
+	(508, 2330897, 'reward_confirmation_request_notification', '2024-12-29 13:31:23.946671+00', 512);
 
 
 --
@@ -2450,7 +2949,7 @@ INSERT INTO "supabase_functions"."hooks" ("id", "hook_table_id", "hook_name", "c
 -- Name: refresh_tokens_id_seq; Type: SEQUENCE SET; Schema: auth; Owner: supabase_auth_admin
 --
 
-SELECT pg_catalog.setval('"auth"."refresh_tokens_id_seq"', 436, true);
+SELECT pg_catalog.setval('"auth"."refresh_tokens_id_seq"', 512, true);
 
 
 --
@@ -2478,14 +2977,14 @@ SELECT pg_catalog.setval('"public"."companies_id_seq"', 6, true);
 -- Name: customer_cards_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('"public"."customer_cards_id_seq"', 10, true);
+SELECT pg_catalog.setval('"public"."customer_cards_id_seq"', 15, true);
 
 
 --
 -- Name: customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('"public"."customer_id_seq"', 15, true);
+SELECT pg_catalog.setval('"public"."customer_id_seq"', 20, true);
 
 
 --
@@ -2510,6 +3009,13 @@ SELECT pg_catalog.setval('"public"."local_cards_id_seq"', 360, true);
 
 
 --
+-- Name: local_posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('"public"."local_posts_id_seq"', 16, true);
+
+
+--
 -- Name: locals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -2520,21 +3026,21 @@ SELECT pg_catalog.setval('"public"."locals_id_seq"', 259, true);
 -- Name: transactions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('"public"."transactions_id_seq"', 78, true);
+SELECT pg_catalog.setval('"public"."transactions_id_seq"', 114, true);
 
 
 --
 -- Name: transactions_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('"public"."transactions_id_seq1"', 66, true);
+SELECT pg_catalog.setval('"public"."transactions_id_seq1"', 94, true);
 
 
 --
 -- Name: hooks_id_seq; Type: SEQUENCE SET; Schema: supabase_functions; Owner: supabase_functions_admin
 --
 
-SELECT pg_catalog.setval('"supabase_functions"."hooks_id_seq"', 398, true);
+SELECT pg_catalog.setval('"supabase_functions"."hooks_id_seq"', 508, true);
 
 
 --

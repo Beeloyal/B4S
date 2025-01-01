@@ -92,4 +92,75 @@ grant truncate on table "public"."local_posts" to "service_role";
 
 grant update on table "public"."local_posts" to "service_role";
 
+drop trigger if exists "reward_confirmation_request_notification" on "public"."transaction_units";
+
+drop trigger if exists "transaction_completed_notification" on "public"."transactions";
+
+alter table "public"."customers" drop constraint "customers_account_fkey1";
+
+alter table "public"."local_posts" enable row level security;
+
+set check_function_bodies = off;
+
+CREATE OR REPLACE FUNCTION public.check_access(local_id integer)
+ RETURNS boolean
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+AS $function$BEGIN
+  RETURN check_app_id('app.beeloyal.employer') AND (is_employer(local_id) OR is_business_owner(local_id));
+END;$function$
+;
+
+CREATE OR REPLACE FUNCTION public.check_customer_access()
+ RETURNS boolean
+ LANGUAGE plpgsql
+ SECURITY DEFINER
+AS $function$BEGIN
+  RETURN check_app_id('app.beeloyal.customer');
+END;$function$
+;
+
+CREATE OR REPLACE FUNCTION public.get_supabase_url()
+ RETURNS text
+ LANGUAGE plpgsql
+AS $function$BEGIN
+  RETURN 'https://cfrwepxesctjdwtkmfas.supabase.co';
+END;$function$
+;
+
+create policy "Business insert"
+on "public"."local_posts"
+as permissive
+for insert
+to authenticated
+with check (check_access(local));
+
+
+create policy "Business select"
+on "public"."local_posts"
+as permissive
+for select
+to authenticated
+using (check_access(local));
+
+
+create policy "Customer select"
+on "public"."local_posts"
+as permissive
+for select
+to authenticated
+using (check_customer_access());
+
+create policy "Business insert"
+on "storage"."objects"
+as permissive
+for insert
+to authenticated
+with check ((check_app_id('app.beeloyal.employer'::text) AND (bucket_id = 'local_posts'::text)));
+
+
+CREATE TRIGGER reward_confirmation_request_notification AFTER UPDATE ON public.transaction_units FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://cfrwepxesctjdwtkmfas.supabase.co/functions/v1/rewardConfirmationRequestNotification', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
+
+CREATE TRIGGER transaction_completed_notification AFTER UPDATE ON public.transactions FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://cfrwepxesctjdwtkmfas.supabase.co/functions/v1/transactionCompletedNotification', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
+
 
