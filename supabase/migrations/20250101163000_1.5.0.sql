@@ -163,4 +163,25 @@ CREATE TRIGGER reward_confirmation_request_notification AFTER UPDATE ON public.t
 
 CREATE TRIGGER transaction_completed_notification AFTER UPDATE ON public.transactions FOR EACH ROW EXECUTE FUNCTION supabase_functions.http_request('https://cfrwepxesctjdwtkmfas.supabase.co/functions/v1/transactionCompletedNotification', 'POST', '{"Content-type":"application/json"}', '{}', '5000');
 
+CREATE OR REPLACE FUNCTION public.handle_new_post()
+RETURNS TRIGGER AS $$
+BEGIN
+  PERFORM
+    net.http_post(
+      url := public.get_supabase_url() || '/functions/v1/postNotification',
+      body := json_build_object(
+        'id', NEW.id,
+        'local', NEW.local,
+        'title', NEW.title,
+        'content', NEW.content,
+        'channels', NEW.channels
+      )::jsonb
+    );
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 
+CREATE TRIGGER on_post_created
+  AFTER INSERT ON public.local_posts
+  FOR EACH ROW
+  EXECUTE FUNCTION public.handle_new_post();
