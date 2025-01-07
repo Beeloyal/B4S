@@ -1,36 +1,47 @@
-interface PushNotification {
-    externalIds: string[];
-    title: string;
-    content: string;
-    imageUrl?: string;
+import { OneSignalNotification } from "./types.ts";
+
+interface PushNotificationPayload {
+  externalIds: string[];
+  title: string;
+  content: string;
+  imageUrl?: string;
 }
 
 export async function sendPushNotification({
-    externalIds,
-    title,
-    content,
-    imageUrl,
-}: PushNotification) {
-    const response = await fetch("https://onesignal.com/api/v1/notifications", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Basic ${Deno.env.get("ONESIGNAL_REST_API_KEY")}`,
-        },
-        body: JSON.stringify({
-            app_id: Deno.env.get("ONESIGNAL_APP_ID"),
-            include_external_user_ids: externalIds,
-            contents: { en: content },
-            headings: { en: title },
-            big_picture: imageUrl,
-            ios_attachments: imageUrl ? { id1: imageUrl } : undefined,
-            channel_for_external_user_ids: "push",
-        }),
-    });
+  externalIds,
+  title,
+  content,
+  imageUrl,
+}: PushNotificationPayload) {
+  const notification: OneSignalNotification = {
+    app_id: Deno.env.get("ONE_SIGNAL_APP_ID")!,
+    include_aliases: {
+      external_id: externalIds,
+    },
+    contents: { en: content },
+    headings: { en: title },
+    target_channel: "push",
+    include_unsubscribed: false,
+  };
 
-    if (!response.ok) {
-        throw new Error(`OneSignal API error: ${response.statusText}`);
-    }
+  if (imageUrl) {
+    notification.big_picture = imageUrl;
+    notification.ios_attachments = { id1: imageUrl };
+  }
 
-    return response.json();
+  const response = await fetch("https://api.onesignal.com/notifications", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      Authorization: `Basic ${Deno.env.get("ONE_SIGNAL_REST_API_KEY")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(notification),
+  });
+
+  if (!response.ok) {
+    throw new Error(`OneSignal Push API error: ${response.statusText}`);
+  }
+
+  return response.json();
 }

@@ -13,7 +13,7 @@ serve(async (req) => {
   try {
     const { record } = await req.json();
 
-    const { local_card, transaction, status, value } = record;
+    const { local_card, transaction, status } = record;
 
     if (status != "required_confirmation") {
       console.log(

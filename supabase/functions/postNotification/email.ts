@@ -1,56 +1,57 @@
-import { SupabaseClient } from "https://esm.sh/@supabase/supabase-js@2.46.1";
+import { OneSignalNotification } from "./types.ts";
 
-interface EmailData {
-    to: string;
-    subject: string;
-    html: string;
+interface EmailNotificationPayload {
+  externalIds: string[];
+  title: string;
+  content: string;
+  imageUrl?: string;
 }
 
-export async function sendEmailNotification(
-    supabase: SupabaseClient,
-    customerIds: string[],
-    title: string,
-    content: string,
-    imageUrl?: string,
-) {
-    // Get customer emails
-    const { data: users } = await supabase
-        .from("users")
-        .select("email")
-        .in("id", customerIds);
+export async function sendEmailNotification({
+  externalIds,
+  title,
+  content,
+  imageUrl,
+}: EmailNotificationPayload) {
+  const formattedContent = content
+    .split("\n")
+    .map((line) => line.trim() ? `<p>${line}</p>` : "</br>")
+    .join("");
 
-    if (!users?.length) {
-        return;
-    }
+  const notification: OneSignalNotification = {
+    app_id: Deno.env.get("ONE_SIGNAL_APP_ID")!,
+    include_aliases: {
+      external_id: externalIds,
+    },
+    target_channel: "email",
+    include_unsubscribed: true,
+    template_id: imageUrl
+      ? "774e037b-4928-4987-b3d9-2284507a3081"
+      : "c9fe9e44-c213-4a50-9dd9-bc8455f74cce",
+    custom_data: {
+      "title": title,
+      "content": formattedContent,
+      "image_url": imageUrl || "",
+    },
+  };
 
-    const emails = users.map((u) => u.email).filter(Boolean);
+  console.log("Notification payload:", JSON.stringify(notification));
 
-    // Create HTML content
-    const htmlContent = `
-    <h1>${title}</h1>
-    ${
-        imageUrl
-            ? `<img src="${imageUrl}" style="max-width: 100%; height: auto;" />`
-            : ""
-    }
-    <p>${content}</p>
-  `;
+  const response = await fetch("https://api.onesignal.com/notifications", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      Authorization: `Basic ${Deno.env.get("ONE_SIGNAL_REST_API_KEY")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(notification),
+  });
 
-    // Send email using Supabase Edge Function
-    const emailData: EmailData = {
-        to: emails.join(","),
-        subject: title,
-        html: htmlContent,
-    };
+  if (!response.ok) {
+    throw new Error(`OneSignal Email API error: ${response.statusText}`);
+  }
 
-    await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/sendEmail`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${
-                Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")
-            }`,
-        },
-        body: JSON.stringify(emailData),
-    });
+  console.log("Email notification response:", response);
+
+  return response.json();
 }

@@ -1,96 +1,79 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.46.1";
-import { sendPushNotification } from "./push.ts";
-import { sendEmailNotification } from "./email.ts";
+import { sendNotification } from "./notification.ts";
+import { NotificationPayload } from "./types.ts";
 
 const supabase = createClient(
-    Deno.env.get("SUPABASE_URL")!,
-    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+  Deno.env.get("SUPABASE_URL")!,
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
 );
 
-interface PostRecord {
-    id: number;
-    local: number;
-    title: string;
-    content: string;
-    image_url?: string;
-    channels: string[];
+interface LocalPost {
+  id: number;
+  local: number;
+  title: string;
+  content: string;
+  image_url?: string;
+  channels: string[];
 }
 
 async function getLocalCustomers(localId: number) {
-    const { data: customers } = await supabase
-        .from("customers")
-        .select("account")
-        .eq("local", localId);
+  const { data: customers } = await supabase
+    .from("customers")
+    .select("account")
+    .eq("local", localId);
 
-    return customers?.map((c) => c.account) || [];
+  return customers?.map((c) => c.account) || [];
 }
 
 serve(async (req) => {
-    try {
-        const record: PostRecord = await req.json();
-        const customerIds = await getLocalCustomers(record.local);
+  try {
+    const { record } = await req.json();
 
-        if (customerIds.length === 0) {
-            return new Response(
-                JSON.stringify({ message: "No customers found" }),
-                {
-                    status: 200,
-                    headers: { "Content-Type": "application/json" },
-                },
-            );
-        }
+    console.log("Notification record:", record);
 
-        const notifications = [];
+    const post: LocalPost = record;
 
-        // Handle push notifications
-        if (record.channels.includes("push")) {
-            notifications.push(
-                sendPushNotification({
-                    externalIds: customerIds,
-                    title: record.title,
-                    content: record.content,
-                    imageUrl: record.image_url,
-                }),
-            );
-        }
+    console.log("Notification post:", post);
 
-        // Handle email notifications
-        if (record.channels.includes("email")) {
-            notifications.push(
-                sendEmailNotification(
-                    supabase,
-                    customerIds,
-                    record.title,
-                    record.content,
-                    record.image_url,
-                ),
-            );
-        }
+    const customerIds = await getLocalCustomers(post.local);
 
-        // Wait for all notifications to complete
-        await Promise.all(notifications);
-
-        return new Response(
-            JSON.stringify({ success: true }),
-            { status: 200, headers: { "Content-Type": "application/json" } },
-        );
-    } catch (e) {
-        console.error("Error processing notification:", e);
-
-        if (e instanceof Error) {
-            return new Response(
-                JSON.stringify({ error: e.message }),
-                {
-                    status: 500,
-                    headers: { "Content-Type": "application/json" },
-                },
-            );
-        }
-
-        return new Response(
-            JSON.stringify({ error: "An error occurred" }),
-            { status: 500, headers: { "Content-Type": "application/json" } },
-        );
+    if (customerIds.length === 0) {
+      return new Response(
+        JSON.stringify({ message: "No customers found" }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      );
     }
+
+    const notificationPayload: NotificationPayload = {
+      externalIds: customerIds,
+      title: post.title,
+      content: post.content,
+      imageUrl: post.image_url,
+      channels: post.channels,
+    };
+
+    const response = await sendNotification(notificationPayload);
+
+    console.log("Notification response:", response);
+
+    return new Response(
+      JSON.stringify({ success: true, messsage: "Post notification sended" }),
+      { status: 200, headers: { "Content-Type": "application/json" } },
+    );
+  } catch (error) {
+    console.error("Error processing notification:", error);
+
+    if (error instanceof Error) {
+      return new Response(
+        JSON.stringify({ error: error.message }),
+        { status: 500, headers: { "Content-Type": "application/json" } },
+      );
+    }
+
+    return new Response(
+      JSON.stringify({ error: "An error occurred" }),
+      { status: 500, headers: { "Content-Type": "application/json" } },
+    );
+  }
 });
