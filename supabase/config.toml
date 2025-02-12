@@ -249,27 +249,6 @@ policy = "oneshot"
 # Port to attach the Chrome inspector for debugging edge functions.
 inspector_port = 8083
 
-# Use these configurations to customize your Edge Function.
-[functions.generateMarker]
-enabled = true
-verify_jwt = false
-
-[functions.rewardConfirmationRequestNotification]
-enabled = true
-verify_jwt = false
-
-[functions.stripeWebhook]
-enabled = true
-verify_jwt = false
-
-[functions.transactionCompletedNotification]
-enabled = true
-verify_jwt = false
-
-[functions.postNotification]
-enabled = true
-verify_jwt = false
-
 [analytics]
 enabled = true
 port = 54327
