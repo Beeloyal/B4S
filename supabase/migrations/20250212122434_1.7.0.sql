@@ -6,6 +6,12 @@ drop policy "Employer app select" on "public"."locals";
 
 alter table "public"."businesses" drop column "name";
 
+alter table "public"."businesses" add column "stripe_id" character varying;
+
+update "public"."businesses" set"stripe_id" = "stripe_customer";
+
+alter table "public"."businesses" alter column "stripe_id" SET NOT NULL;
+
 alter table "public"."businesses" drop column "stripe_customer";
 
 alter table "public"."businesses" drop column "subscription_id";
@@ -15,8 +21,6 @@ alter table "public"."businesses" drop column "subscription_period_end";
 alter table "public"."businesses" drop column "subscription_status";
 
 alter table "public"."businesses" add column "status" business_status not null default 'in_review'::business_status;
-
-alter table "public"."businesses" add column "stripe_id" character varying not null;
 
 CREATE UNIQUE INDEX businesses_id_key ON public.businesses USING btree (id);
 

@@ -9,33 +9,14 @@ const supabase = createClient(
 const TELEGRAM_BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN")!;
 const TELEGRAM_CHAT_ID = Deno.env.get("TELEGRAM_CHAT_ID")!;
 
-function formatDate(createdAt: string | number | Date) {
-    const date = new Date(createdAt);
-    return date.toLocaleDateString("pl-PL", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-    });
-}
-
 serve(async (req) => {
-    console.log("Request received");
-
     try {
         const { record, table } = await req.json();
-        console.log("Record:", record);
-        console.log("Table:", table);
 
         let message;
 
         if (table === "users") {
-            const { email, phone, created_at } = record;
-            message =
-                `👤 Nowy użytkownik!\n\n📧 Email: **${email}**\n📞 Telefon: **${phone}**\n📅 Data: ${
-                    formatDate(created_at)
-                }`;
+            message = `👤 Nowy użytkownik`;
         }
 
         if (table === "customers") {
@@ -48,9 +29,7 @@ serve(async (req) => {
             }).eq("local", local);
             if (error) throw error;
             message =
-                `🎉 Nowy klient!\n\n🏢 Lokal: **${data.name}**\n👥 Liczba klientów: ${count}\n📅 Data: ${
-                    formatDate(record.created_at)
-                }`;
+                `🎉 Nowy klient w \*${data.name}\*, mają już ich \*${count}\*!`;
         }
 
         if (table === "transaction_units" && record.status === "completed") {
@@ -59,8 +38,6 @@ serve(async (req) => {
                 local_card,
                 value,
                 type,
-                created_at,
-                completed_at,
                 transaction,
             } = record;
 
@@ -78,11 +55,7 @@ serve(async (req) => {
                     .select("name").eq("id", localAddressData?.local).single();
 
                 message =
-                    `💸 Nowa transakcja!\n\n🏢 Lokal: **${localData?.name}**\n💰 Dodano punkty: **${value} pkt.**\n\n📅 Start: ${
-                        formatDate(created_at)
-                    }\n📅 Koniec: ${
-                        formatDate(completed_at)
-                    }\n\n🆔 Transakcja: #${transaction}`;
+                    `💸 Nowa transakcja w lokalu \*${localData?.name}\*, dodano do konta klienta +\*${value} pkt.\*!`;
             } else if (type === "add_stamps") {
                 const { data: cardData } = await supabase.from("local_cards")
                     .select("local, name, cost").eq("id", local_card).single();
@@ -98,11 +71,7 @@ serve(async (req) => {
                     .select("name").eq("id", cardData?.local).single();
 
                 message =
-                    `🎉 Dodano pieczątki (+${value})!\n\n🏢 Lokal: **${localData?.name}**\n💳 Karta lojalnościowa: **${cardData?.name}**\n👤 Stan karty klienta: **${customerCardData?.collected}/${cardData?.cost}**\n\n📅 Start: ${
-                        formatDate(created_at)
-                    }\n📅 Koniec: ${
-                        formatDate(completed_at)
-                    }\n\n🆔 Transakcja: #${transaction}`;
+                    `🎉 W lokalu \*${localData?.name}\* nabito \*+${value}\* pieczątek na karte lojalnościową \*${cardData?.name}\*, klient posiada już \*${customerCardData?.collected}/${cardData?.cost}\*`;
             } else if (type === "get_reward") {
                 const { data: cardData } = await supabase.from("local_cards")
                     .select("local, name, cost").eq("id", local_card).single();
@@ -111,11 +80,9 @@ serve(async (req) => {
                     .select("name").eq("id", cardData?.local).single();
 
                 message =
-                    `🎁 Klient odebrał nagrodę!\n\n🏢 Lokal: **${localData?.name}**\n💳 Karta lojalnościowa: **${cardData?.name}**\n👤 Ściągnięto z konta użytkownika: **-${value} ${
+                    `🎁 Klient odebrał nagrodę w lokalu \*${localData?.name}\* z karty lojalnościowej \*${cardData?.name}\*, z jego konta ściągnięto \*-${value} ${
                         !customer_card ? "pieczątek" : "punktów"
-                    }**\n\n📅 Start: ${formatDate(created_at)}\n📅 Koniec: ${
-                        formatDate(completed_at)
-                    }\n\n🆔 Transakcja: #${transaction}`;
+                    }\*`;
             }
         }
 
@@ -134,8 +101,6 @@ serve(async (req) => {
                     }),
                 },
             );
-
-            console.log("Telegram response:", response);
 
             return response;
         } else {
